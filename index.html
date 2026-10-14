@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mahi's ACCUPLACER Prep</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+
+/* Layout: answer-sheet app — navy test-booklet header band, cool paper body, scantron bubbles, bottom tab bar sized for iPad touch. */
+:root{
+  --ink:#13213f; --ink-2:#2a3a5f; --paper:#f3f5fa; --card:#ffffff; --line:#d9deea; --muted:#5d6883;
+  --gold:#f2b705; --gold-ink:#5b4300; --gold-soft:#fff3c4;
+  --band:#0f2a5c; --band-2:#163a7a; --on-band:#ffffff; --on-band-dim:#b9c6e4;
+  --ok:#11845b; --ok-soft:#dcf3e9; --bad:#c2352b; --bad-soft:#fbe3e0; --warn:#b26b00; --warn-soft:#fff0d6;
+  --bubble:#ffffff; --focus:#2f6bff;
+  --f-display:'Barlow Condensed','Arial Narrow',system-ui,sans-serif;
+  --f-body:'Atkinson Hyperlegible',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  --r:14px; --r-sm:10px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --ink:#e8ecf6; --ink-2:#c3cbe0; --paper:#0b1428; --card:#13203d; --line:#26365c; --muted:#93a0bf;
+  --gold:#f5c537; --gold-ink:#f5c537; --gold-soft:#3a3010;
+  --band:#0a1f47; --band-2:#12306a; --on-band:#ffffff; --on-band-dim:#9fb0d8;
+  --ok:#3fcf95; --ok-soft:#0f3a2b; --bad:#ff7a6e; --bad-soft:#45191a; --warn:#ffb547; --warn-soft:#3d2a0b;
+  --bubble:#0f1a33; --focus:#7ea6ff; color-scheme:dark; } }
+:root[data-theme="dark"]{
+  --ink:#e8ecf6; --ink-2:#c3cbe0; --paper:#0b1428; --card:#13203d; --line:#26365c; --muted:#93a0bf;
+  --gold:#f5c537; --gold-ink:#f5c537; --gold-soft:#3a3010;
+  --band:#0a1f47; --band-2:#12306a; --on-band:#ffffff; --on-band-dim:#9fb0d8;
+  --ok:#3fcf95; --ok-soft:#0f3a2b; --bad:#ff7a6e; --bad-soft:#45191a; --warn:#ffb547; --warn-soft:#3d2a0b;
+  --bubble:#0f1a33; --focus:#7ea6ff; color-scheme:dark; }
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.wrap{max-width:880px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:.2px}
+
+/* header band */
+.band{background:linear-gradient(180deg,var(--band),var(--band-2));color:var(--on-band);position:sticky;top:env(safe-area-inset-top,0px);z-index:20;border-bottom:4px solid var(--gold)}
+.band .wrap{display:flex;align-items:center;gap:14px;padding-block:12px}
+.brand{display:flex;flex-direction:column;line-height:1;min-width:0}
+.brand b{font-family:var(--f-display);font-weight:800;font-size:26px;letter-spacing:1px;text-transform:uppercase}
+.brand b span{color:var(--gold)}
+.brand small{font-size:12px;color:var(--on-band-dim);letter-spacing:1.2px;text-transform:uppercase;margin-top:4px}
+.count{margin-left:auto;display:flex;align-items:baseline;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:6px 12px;white-space:nowrap}
+.count .n{font-family:var(--f-display);font-weight:800;font-size:30px;color:var(--gold);line-height:1}
+.count .l{font-size:12px;color:var(--on-band-dim);text-transform:uppercase;letter-spacing:1px;line-height:1.1}
+
+main{padding-block:20px 120px}
+.sec[hidden]{display:none!important}
+.eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);margin:26px 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:620px){.grid3{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:12px;padding:14px 22px;font-weight:700;font-size:17px;min-height:52px;transition:transform .12s}
+.btn:active{transform:scale(.98)}
+.btn.primary{background:var(--gold);color:#241a00}
+.btn.navy{background:var(--band);color:#fff}
+.btn.ghost{background:transparent;border:2px solid var(--line);color:var(--ink)}
+.btn.wide{width:100%}
+.btn[disabled]{opacity:.45;cursor:default}
+
+/* today hero */
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr}}
+.today{background:var(--band);color:#fff;border-radius:var(--r);padding:22px;position:relative;overflow:hidden}
+.today::after{content:"";position:absolute;right:-30px;top:-30px;width:150px;height:150px;border-radius:50%;border:18px solid rgba(242,183,5,.18)}
+.today .tag{display:inline-block;background:var(--gold);color:#241a00;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;border-radius:6px;padding:3px 8px}
+.today h2{font-size:34px;font-weight:800;margin:12px 0 6px;color:#fff}
+.today p{margin:0 0 16px;color:#c9d4ee;max-width:46ch}
+.today .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.chip{display:inline-block;border-radius:999px;padding:4px 11px;font-size:13px;font-weight:700;background:var(--paper);border:1px solid var(--line);color:var(--ink-2)}
+.today .chip{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff}
+.done-note{display:flex;gap:8px;align-items:center;color:#9de7c7;font-weight:700;margin-bottom:12px}
+
+/* gauge */
+.gauge{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.gauge svg{width:190px;max-width:100%;height:auto}
+.gauge .big{font-family:var(--f-display);font-weight:800;font-size:44px;fill:var(--ink)}
+.gauge .sub{font-size:12px;fill:var(--muted);letter-spacing:1px}
+.gauge .verdict{font-weight:700;margin-top:4px}
+.gauge small{color:var(--muted);font-size:13px;max-width:30ch}
+
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat .v{font-family:var(--f-display);font-weight:800;font-size:32px;line-height:1}
+.stat .k{font-size:13px;color:var(--muted)}
+
+/* topic heat */
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.tp{display:flex;flex-direction:column;gap:8px;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 14px;min-height:92px}
+.tp:hover{border-color:var(--ink-2)}
+.tp .nm{font-weight:700;font-size:15px;line-height:1.25}
+.tp .meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);margin-top:auto}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+.pill{font-size:12px;font-weight:700;border-radius:6px;padding:2px 7px}
+.p-ok{background:var(--ok-soft);color:var(--ok)} .p-warn{background:var(--warn-soft);color:var(--warn)} .p-bad{background:var(--bad-soft);color:var(--bad)} .p-new{background:var(--paper);color:var(--muted);border:1px solid var(--line)}
+.strand-h{display:flex;align-items:baseline;gap:10px;margin:26px 0 10px}
+.strand-h h3{font-size:24px;font-weight:700}
+.strand-h span{font-size:13px;color:var(--muted)}
+
+/* plan */
+.week{margin-bottom:22px}
+.week h3{font-size:20px;font-weight:700;margin-bottom:8px}
+.day{display:grid;grid-template-columns:76px 1fr auto;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 14px;margin-bottom:8px}
+.day .dt{font-family:var(--f-display);line-height:1}
+.day .dt b{display:block;font-size:26px;font-weight:800}
+.day .dt span{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.day .what{min-width:0}
+.day .what b{display:block}
+.day .what small{color:var(--muted);font-size:14px}
+.day.is-today{border:2px solid var(--gold);background:var(--gold-soft)}
+.day.is-past:not(.is-done){opacity:.7}
+.day.exam{background:var(--band);color:#fff;border-color:var(--band)}
+.day.exam .dt span,.day.exam small{color:#c9d4ee}
+.mark{width:34px;height:34px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-weight:700}
+.is-done .mark{background:var(--ok);border-color:var(--ok);color:#fff}
+
+/* quiz */
+.qtop{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.qtop .lbl{font-weight:700}
+.qtop .right{margin-left:auto;display:flex;gap:8px;align-items:center}
+.prog{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin-bottom:18px}
+.prog i{display:block;height:100%;background:var(--gold);transition:width .3s}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.qnum{font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:flex;gap:10px;align-items:center}
+.qtext{font-size:22px;line-height:1.55;margin-bottom:22px;overflow-wrap:anywhere}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:center;gap:16px;text-align:left;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px 16px;min-height:62px;font-size:19px}
+.opt:hover:not([disabled]){border-color:var(--ink-2)}
+.bub{flex:0 0 auto;width:38px;height:38px;border-radius:50%;border:2px solid var(--ink-2);display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;font-size:15px;background:var(--bubble);color:var(--ink-2)}
+.opt.sel{border-color:var(--band-2)} .opt.sel .bub{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)} .opt.right .bub{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)} .opt.wrong .bub{background:var(--bad);border-color:var(--bad);color:#fff}
+.opt[disabled]{cursor:default}
+.ot{min-width:0;overflow-wrap:anywhere}
+.fb{margin-top:18px;border-radius:12px;padding:16px 18px;font-size:17px}
+.fb.ok{background:var(--ok-soft);border:1px solid var(--ok)} .fb.no{background:var(--bad-soft);border:1px solid var(--bad)}
+.fb b{font-family:var(--f-display);font-size:21px;display:block;margin-bottom:4px}
+.tutor-out{margin-top:12px;white-space:pre-wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;font-size:16px}
+.qactions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.qactions .btn{flex:1 1 200px}
+
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.05;margin:0 2px;font-size:.88em}
+.fr>span:first-child{border-bottom:1.5px solid currentColor;padding:0 3px}
+.fr>span:last-child{padding:0 3px}
+
+/* results */
+.score-hero{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.score-hero .pct{font-family:var(--f-display);font-weight:800;font-size:76px;line-height:.9}
+.score-hero .msg{flex:1 1 260px;min-width:0}
+.rv{border-top:1px solid var(--line);padding:14px 0}
+.rv:first-child{border-top:none}
+.rv .h{display:flex;gap:10px;align-items:flex-start}
+.rv .q{font-size:17px;min-width:0;overflow-wrap:anywhere}
+.rv .a{font-size:15px;margin-top:6px;color:var(--muted)}
+.rv .a b{color:var(--ink)}
+
+/* modes */
+.modes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:620px){.modes{grid-template-columns:1fr}}
+.mode{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:6px}
+.mode:hover{border-color:var(--ink-2)}
+.mode h3{font-size:24px;font-weight:700}
+.mode p{margin:0;color:var(--muted);font-size:15px}
+.mode .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.mode.rec{border:2px solid var(--gold)}
+.hist{width:100%;border-collapse:collapse;font-size:15px}
+.hist td,.hist th{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left}
+.hist th{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.tbl{overflow-x:auto}
+
+.tips{margin:0;padding-left:20px} .tips li{margin-bottom:6px}
+textarea{width:100%;min-height:110px;border:2px solid var(--line);border-radius:12px;padding:14px;font:inherit;background:var(--card);color:var(--ink);resize:vertical}
+.empty{text-align:center;padding:30px 18px;color:var(--muted)}
+.empty b{display:block;font-family:var(--f-display);font-size:26px;color:var(--ink);margin-bottom:6px}
+
+/* tab bar */
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+.tabs .in{max-width:880px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr)}
+.tab{border:none;background:none;padding:10px 2px 12px;display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.4px;position:relative}
+.tab svg{width:26px;height:26px}
+.tab.on{color:var(--ink)}
+.tab.on::before{content:"";position:absolute;top:0;left:22%;right:22%;height:3px;border-radius:0 0 3px 3px;background:var(--gold)}
+.badge{position:absolute;top:6px;left:calc(50% + 8px);background:var(--bad);color:#fff;border-radius:999px;font-size:11px;padding:0 6px;line-height:18px}
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:12px 18px;border-radius:12px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .25s;max-width:90vw;text-align:center;z-index:40}
+.toast.show{opacity:1}
+.confirm{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (max-width:520px){.qtext{font-size:19px}.opt{font-size:17px}.today h2{font-size:28px}.count .n{font-size:24px}.brand b{font-size:21px}.day{grid-template-columns:60px 1fr auto}}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="wrap">
+    <div class="brand"><b>Accuplacer <span>Math</span></b><small>Mahi · MCVSD admission · Goal 90%+</small></div>
+    <div class="count" id="countdown" aria-live="polite"><span class="n num" id="cd-n">37</span><span class="l">days to<br>Nov 20</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="sec" id="s-today"></section>
+  <section class="sec" id="s-plan" hidden></section>
+  <section class="sec" id="s-practice" hidden></section>
+  <section class="sec" id="s-mock" hidden></section>
+  <section class="sec" id="s-review" hidden></section>
+  <section class="sec" id="s-tutor" hidden></section>
+  <section class="sec" id="s-quiz" hidden></section>
+  <section class="sec" id="s-result" hidden></section>
+</main>
+
+<nav class="tabs" aria-label="Sections"><div class="in">
+  <button class="tab on" data-go="today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Today</button>
+  <button class="tab" data-go="plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Plan</button>
+  <button class="tab" data-go="practice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg>Practice</button>
+  <button class="tab" data-go="mock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="9" cy="8" r="1.2"/><circle cx="9" cy="12" r="1.2"/><circle cx="9" cy="16" r="1.2"/><path d="M12 8h4M12 12h4M12 16h4"/></svg>Mock Test</button>
+  <button class="tab" data-go="review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 3-6.3"/><path d="M4 4v4h4"/></svg>Mistakes<span class="badge" id="miss-badge" hidden>0</span></button>
+  <button class="tab" data-go="tutor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9.5 10a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5"/><circle cx="12" cy="16.5" r=".6" fill="currentColor"/></svg>Tutor</button>
+</div></nav>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+// ===== QUESTION ENGINE =====
+const R = (a, b) => Math.floor(Math.random() * (b - a + 1)) + a;
+const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+const nz = (a, b) => { let v; do { v = R(a, b); } while (v === 0); return v; };
+const gcd = (a, b) => { a = Math.abs(a); b = Math.abs(b); while (b) [a, b] = [b, a % b]; return a || 1; };
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const round = (x, d = 2) => Math.round(x * 10 ** d) / 10 ** d;
+const fmtN = x => { const r = round(x, 4); return (r < 0 ? '−' : '') + Math.abs(r).toLocaleString('en-US', { maximumFractionDigits: 4 }); };
+const sgn = x => x < 0 ? '−' : '+';
+const money = x => '$' + x.toFixed(2);
+const SUP = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '-': '⁻' };
+const sup = n => String(n).split('').map(c => SUP[c] || c).join('');
+
+// fraction [n,d] reduced
+function F(n, d) { if (d < 0) { n = -n; d = -d; } const g = gcd(n, d); return [n / g, d / g]; }
+function fr(n, d) {
+  [n, d] = F(n, d);
+  if (d === 1) return fmtN(n);
+  const neg = n < 0 ? '−' : '';
+  return `${neg}<span class="fr"><span>${Math.abs(n)}</span><span>${d}</span></span>`;
+}
+function mixed(n, d) {
+  [n, d] = F(n, d);
+  if (d === 1 || Math.abs(n) < d) return fr(n, d);
+  const w = Math.trunc(n / d), r = Math.abs(n % d);
+  return `${fmtN(w)} ${fr(r, d)}`;
+}
+// linear term helper: coef*x
+function term(c, v = 'x', first = false) {
+  if (c === 0) return '';
+  const a = Math.abs(c), s = c < 0 ? '−' : '+';
+  const body = (a === 1 ? '' : a) + v;
+  if (first) return (c < 0 ? '−' : '') + body;
+  return ` ${s} ${body}`;
+}
+function cterm(c, first = false) {
+  if (c === 0) return first ? '0' : '';
+  if (first) return fmtN(c);
+  return ` ${sgn(c)} ${Math.abs(c)}`;
+}
+function lin(a, b, v = 'x') { // ax + b
+  if (a === 0) return cterm(b, true);
+  return term(a, v, true) + cterm(b);
+}
+
+// Build MC item: correct + distractors (strings, html). Ensures 4 unique.
+function mc(correct, distractors, extra) {
+  const seen = new Set([correct]); const opts = [correct];
+  for (const d of distractors) { if (opts.length >= 4) break; if (d != null && !seen.has(d)) { seen.add(d); opts.push(d); } }
+  let guard = 0;
+  while (opts.length < 4 && guard++ < 50) { const d = extra ? extra() : String(R(1, 99)); if (!seen.has(d)) { seen.add(d); opts.push(d); } }
+  const sh = shuffle(opts);
+  return { opts: sh, ans: sh.indexOf(correct) };
+}
+const near = (v, f = fmtN) => () => f(v + nz(-5, 5));
+
+// ===== TOPICS =====
+// strand: ARI = Arithmetic, QAS = Quant Reasoning/Algebra/Stats, AAF = Advanced Algebra & Functions
+const TOPICS = {
+  frac: { name: 'Fractions', strand: 'ARI' },
+  dec: { name: 'Decimals', strand: 'ARI' },
+  pct: { name: 'Percents', strand: 'ARI' },
+  ops: { name: 'Order of Operations', strand: 'ARI' },
+  cmp: { name: 'Comparing Numbers', strand: 'ARI' },
+  int: { name: 'Integers & Absolute Value', strand: 'QAS' },
+  ratio: { name: 'Ratios & Proportions', strand: 'QAS' },
+  exp: { name: 'Exponents & Sci. Notation', strand: 'QAS' },
+  roots: { name: 'Square Roots', strand: 'QAS' },
+  expr: { name: 'Algebraic Expressions', strand: 'QAS' },
+  eq: { name: 'Linear Equations', strand: 'QAS' },
+  ineq: { name: 'Linear Inequalities', strand: 'QAS' },
+  sys: { name: 'Systems of Equations', strand: 'QAS' },
+  linapp: { name: 'Lines & Linear Models', strand: 'QAS' },
+  stats: { name: 'Mean, Median & Data', strand: 'QAS' },
+  prob: { name: 'Probability & Sets', strand: 'QAS' },
+  geo: { name: 'Geometry: Area & Volume', strand: 'QAS' },
+  tri: { name: 'Triangles & Angles', strand: 'QAS' },
+  poly: { name: 'Polynomials & Factoring', strand: 'AAF' },
+  quad: { name: 'Quadratic Equations', strand: 'AAF' },
+  func: { name: 'Functions', strand: 'AAF' },
+  rad: { name: 'Radicals & Exponent Rules', strand: 'AAF' },
+  expo: { name: 'Exponential Growth', strand: 'AAF' },
+};
+const STRANDS = {
+  ARI: { name: 'Arithmetic', short: 'Arithmetic' },
+  QAS: { name: 'Quantitative Reasoning, Algebra & Statistics', short: 'QAS' },
+  AAF: { name: 'Advanced Algebra & Functions', short: 'AAF' },
+};
+
+const G = {}; // topic -> array of generator fns
+
+const add = (topic, fn) => { (G[topic] = G[topic] || []).push(fn); };
+
+// ---------- ARITHMETIC ----------
+add('frac', () => {
+  const b = pick([3, 4, 5, 6, 8]), d = pick([2, 3, 4, 6, 10, 12].filter(x => x !== b));
+  const a = R(1, b - 1), c = R(1, d - 1);
+  const [n, den] = F(a * d + c * b, b * d);
+  const m = mc(mixed(n, den), [fr(a + c, b + d), mixed(a * d + c * b, b * d) === mixed(n, den) ? fr(a + c, b * d) : mixed(a * d + c * b, b * d), fr(a * c, b * d), mixed(n + 1, den)], () => fr(R(1, 20), R(2, 15)));
+  return { q: `What is ${fr(a, b)} + ${fr(c, d)}?`, ...m, exp: `Use a common denominator of ${b * d / gcd(b, d)}. Rewrite each fraction, add the numerators, then simplify: ${mixed(n, den)}. Never add the denominators.` };
+});
+add('frac', () => {
+  const a = R(1, 7), b = R(a + 1, 9), c = R(1, 7), d = R(c + 1, 9);
+  const div = Math.random() < .5;
+  const [n, den] = div ? F(a * d, b * c) : F(a * c, b * d);
+  const wrong = div ? [mixed(a * c, b * d), mixed(b * c, a * d), mixed(a + c, b + d)] : [mixed(a * d, b * c), mixed(a + c, b + d), mixed(a * c, b + d)];
+  return { q: `What is ${fr(a, b)} ${div ? '÷' : '×'} ${fr(c, d)}?`, ...mc(mixed(n, den), wrong, () => fr(R(1, 30), R(2, 30))), exp: div ? `Dividing by a fraction means multiplying by its reciprocal: ${fr(a, b)} × ${fr(d, c)} = ${mixed(n, den)}.` : `Multiply straight across: numerators ${a}×${c}, denominators ${b}×${d}, then simplify to ${mixed(n, den)}.` };
+});
+add('frac', () => {
+  const d = pick([3, 4, 6, 8]), w1 = R(3, 7), w2 = R(1, w1 - 1), n1 = R(1, d - 1), n2 = R(1, d - 1);
+  const tot = (w1 * d + n1) - (w2 * d + n2);
+  return { q: `A ribbon is ${mixed(w1 * d + n1, d)} feet long. Mahi cuts off ${mixed(w2 * d + n2, d)} feet. How many feet are left?`, ...mc(mixed(tot, d), [mixed(tot + d, d), mixed(Math.abs((w1 - w2) * d + Math.abs(n1 - n2)), d), mixed(tot + 2, d)], () => mixed(R(1, 40), d)), exp: `Convert to improper fractions: ${fr(w1 * d + n1, d)} − ${fr(w2 * d + n2, d)} = ${fr(tot, d)} = ${mixed(tot, d)} feet.` };
+});
+add('dec', () => {
+  const a = R(11, 99) / 10, b = R(2, 9) / 10 * pick([1, 10]);
+  const ans = round(a * b, 3);
+  return { q: `What is ${fmtN(a)} × ${fmtN(b)}?`, ...mc(fmtN(ans), [fmtN(ans * 10), fmtN(ans / 10), fmtN(round(a + b, 2))], near(ans)), exp: `Multiply as whole numbers, then count decimal places in both factors. ${fmtN(a)} × ${fmtN(b)} = ${fmtN(ans)}.` };
+});
+add('dec', () => {
+  const b = pick([0.2, 0.4, 0.5, 0.25, 0.3, 0.6]), ans = R(4, 40), a = round(ans * b, 3);
+  return { q: `What is ${fmtN(a)} ÷ ${fmtN(b)}?`, ...mc(fmtN(ans), [fmtN(ans / 10), fmtN(ans * 10), fmtN(round(a * b, 3))], near(ans)), exp: `Move the decimal in both numbers the same number of places so the divisor is a whole number, then divide. ${fmtN(a)} ÷ ${fmtN(b)} = ${fmtN(ans)}.` };
+});
+add('dec', () => {
+  const p = pick([[1, 8, '0.125'], [3, 8, '0.375'], [5, 8, '0.625'], [7, 8, '0.875'], [3, 5, '0.6'], [7, 20, '0.35'], [9, 25, '0.36'], [11, 20, '0.55'], [3, 16, '0.1875']]);
+  const [n, d, dv] = p;
+  return { q: `Which decimal is equal to ${fr(n, d)}?`, ...mc(dv, ['0.' + n + d, String(round(d / n / 10, 3)), fmtN(round(n / d + 0.1, 4)), String(n / 10)], () => '0.' + R(10, 99)), exp: `Divide numerator by denominator: ${n} ÷ ${d} = ${dv}.` };
+});
+add('pct', () => {
+  const p = pick([5, 12, 15, 18, 20, 25, 35, 40, 45, 60, 75, 120]), n = pick([40, 60, 80, 120, 150, 240, 360, 500]);
+  const ans = round(p * n / 100, 2);
+  return { q: `What is ${p}% of ${n}?`, ...mc(fmtN(ans), [fmtN(ans * 10), fmtN(round(n / p, 2)), fmtN(n - ans)], near(ans)), exp: `Write ${p}% as ${p / 100} and multiply: ${p / 100} × ${n} = ${fmtN(ans)}.` };
+});
+add('pct', () => {
+  const o = pick([20, 25, 40, 50, 80, 120, 150, 200, 250]), p = pick([10, 20, 25, 30, 40, 50]), up = Math.random() < .5;
+  const nw = up ? o * (1 + p / 100) : o * (1 - p / 100);
+  const wrongP = Math.round(Math.abs(nw - o) / nw * 100);
+  return { q: `A price changes from $${o} to $${fmtN(nw)}. What is the percent ${up ? 'increase' : 'decrease'}?`, ...mc(p + '%', [wrongP + '%', fmtN(Math.abs(nw - o)) + '%', (p + 5) + '%', (100 - p) + '%'], () => R(5, 60) + '%'), exp: `Percent change = change ÷ ORIGINAL = ${fmtN(Math.abs(nw - o))} ÷ ${o} = ${p / 100} = ${p}%. Always divide by the starting value.` };
+});
+add('pct', () => {
+  const price = pick([40, 60, 75, 80, 120, 150]), disc = pick([10, 20, 25, 30]), tax = pick([5, 6, 8, 10]);
+  const sale = price * (1 - disc / 100), total = round(sale * (1 + tax / 100), 2);
+  return { q: `A jacket costs $${price}. It is on sale for ${disc}% off, and then ${tax}% sales tax is added to the sale price. What is the final cost?`, ...mc(money(total), [money(round(price * (1 - (disc - tax) / 100), 2)), money(sale), money(round(price * (1 + tax / 100), 2))], () => money(total + R(-6, 6) || 1)), exp: `Sale price: $${price} × ${1 - disc / 100} = $${sale.toFixed(2)}. Add tax: $${sale.toFixed(2)} × ${1 + tax / 100} = ${money(total)}. Apply percentages one after the other, not by adding them.` };
+});
+add('pct', () => {
+  const part = pick([12, 18, 24, 30, 45]), p = pick([20, 30, 40, 60, 75]);
+  if ((part * 100) % p) return G.pct[0]();
+  const whole = part * 100 / p;
+  return { q: `${part} is ${p}% of what number?`, ...mc(fmtN(whole), [fmtN(part * p / 100), fmtN(part + p), fmtN(whole / 2)], near(whole)), exp: `Write ${part} = ${p / 100} × n, so n = ${part} ÷ ${p / 100} = ${fmtN(whole)}.` };
+});
+add('ops', () => {
+  const a = R(2, 9), b = R(2, 6), c = R(2, 5), d = R(1, 9);
+  const ans = a + b * c ** 2 - d;
+  return { q: `Evaluate: ${a} + ${b} × ${c}² − ${d}`, ...mc(fmtN(ans), [fmtN((a + b) * c ** 2 - d), fmtN(a + (b * c) ** 2 - d), fmtN(a + b * c * 2 - d)], near(ans)), exp: `PEMDAS: exponent first (${c}² = ${c * c}), then multiply (${b} × ${c * c} = ${b * c * c}), then add and subtract left to right: ${a} + ${b * c * c} − ${d} = ${ans}.` };
+});
+add('ops', () => {
+  const a = R(12, 40), b = R(2, 6), c = R(1, 5), d = R(2, 4);
+  const ans = a - b * (c + d) / 1;
+  return { q: `Evaluate: ${a} − ${b}(${c} + ${d})`, ...mc(fmtN(ans), [fmtN((a - b) * (c + d)), fmtN(a - b * c + d), fmtN(a - b + c + d)], near(ans)), exp: `Parentheses first: ${c} + ${d} = ${c + d}. Multiply: ${b} × ${c + d} = ${b * (c + d)}. Subtract: ${a} − ${b * (c + d)} = ${ans}.` };
+});
+add('cmp', () => {
+  const set = shuffle([[2, 3], [5, 8], [3, 5], [7, 12], [4, 7], [5, 9], [11, 16], [3, 4], [7, 10]]).slice(0, 4);
+  const vals = set.map(([n, d]) => n / d); const mx = Math.max(...vals);
+  const opts = set.map(([n, d]) => fr(n, d)); const correct = opts[vals.indexOf(mx)];
+  return { q: `Which number is the greatest?`, opts, ans: opts.indexOf(correct), exp: `Convert to decimals: ${set.map(([n, d]) => fr(n, d) + ' ≈ ' + round(n / d, 3)).join(', ')}. The greatest is ${correct}.` };
+});
+add('cmp', () => {
+  const n = R(6, 30), lo = Math.floor(Math.sqrt(n * 10)) ; const v = n * 10 + R(1, 9);
+  const s = Math.floor(Math.sqrt(v)); if (s * s === v) return G.cmp[0]();
+  return { q: `√${v} is between which two consecutive whole numbers?`, ...mc(`${s} and ${s + 1}`, [`${s - 1} and ${s}`, `${s + 1} and ${s + 2}`, `${Math.floor(v / 2)} and ${Math.floor(v / 2) + 1}`]), exp: `${s}² = ${s * s} and ${s + 1}² = ${(s + 1) ** 2}. Since ${s * s} < ${v} < ${(s + 1) ** 2}, √${v} is between ${s} and ${s + 1}.` };
+});
+add('cmp', () => {
+  const a = R(2, 9), b = R(11, 99);
+  const items = shuffle([`0.${a}`, `0.${b}`, `0.0${a}${R(1, 9)}`, `0.${a}0${R(1, 9)}`]);
+  const vals = items.map(Number); const order = items.slice().sort((x, y) => Number(x) - Number(y));
+  const correct = order.join(', ');
+  const w1 = items.slice().sort((x, y) => x.length - y.length || Number(x) - Number(y)).join(', ');
+  const w2 = order.slice().reverse().join(', ');
+  const w3 = [order[1], order[0], order[2], order[3]].join(', ');
+  return { q: `Order from least to greatest: ${items.join(', ')}`, ...mc(correct, [w1, w2, w3], () => shuffle(items).join(', ')), exp: `Line the decimals up by place value (add zeros so they have the same length) and compare digit by digit: ${correct}.` };
+});
+
+// ---------- QAS ----------
+add('int', () => {
+  const a = nz(-15, 15), b = nz(-12, 12), c = nz(-6, 6);
+  const ans = a - b * c;
+  return { q: `Evaluate: ${fmtN(a)} − (${fmtN(b)})(${fmtN(c)})`, ...mc(fmtN(ans), [fmtN(a + b * c), fmtN((a - b) * c), fmtN(-ans)], near(ans)), exp: `Multiply first: (${fmtN(b)})(${fmtN(c)}) = ${fmtN(b * c)}. Then ${fmtN(a)} − (${fmtN(b * c)}) = ${fmtN(ans)}. Subtracting a negative is adding.` };
+});
+add('int', () => {
+  const a = R(2, 9), b = R(10, 20), c = R(1, 9);
+  const ans = Math.abs(a - b) - Math.abs(-c);
+  return { q: `What is |${a} − ${b}| − |−${c}|?`, ...mc(fmtN(ans), [fmtN(a - b - c), fmtN(Math.abs(a - b) + c), fmtN(-(Math.abs(a - b) + c))], near(ans)), exp: `|${a} − ${b}| = |${a - b}| = ${b - a}, and |−${c}| = ${c}. So ${b - a} − ${c} = ${ans}.` };
+});
+add('int', () => {
+  const t = R(-12, -2), rise = R(8, 25);
+  return { q: `At 6 a.m. the temperature was ${fmtN(t)}°F. By noon it rose ${rise}°F. What was the temperature at noon?`, ...mc(fmtN(t + rise) + '°F', [fmtN(t - rise) + '°F', fmtN(-t + rise) + '°F', fmtN(-(t + rise)) + '°F'], () => fmtN(R(-20, 20)) + '°F'), exp: `${fmtN(t)} + ${rise} = ${fmtN(t + rise)}°F.` };
+});
+add('ratio', () => {
+  const r1 = R(2, 5), r2 = R(r1 + 1, 9), k = R(3, 9);
+  const g = gcd(r1, r2); const a = r1 / g, b = r2 / g;
+  const tot = (a + b) * k;
+  return { q: `The ratio of boys to girls in a club is ${a}:${b}. There are ${tot} students in total. How many girls are there?`, ...mc(fmtN(b * k), [fmtN(a * k), fmtN(tot / 2), fmtN(Math.round(tot * b / a))], near(b * k)), exp: `The ratio has ${a} + ${b} = ${a + b} parts. Each part is ${tot} ÷ ${a + b} = ${k}. Girls = ${b} × ${k} = ${b * k}.` };
+});
+add('ratio', () => {
+  const unit = pick([2.5, 3, 3.5, 4, 1.25, 0.75]), n1 = R(3, 8), n2 = R(9, 20);
+  const c1 = round(unit * n1, 2), c2 = round(unit * n2, 2);
+  return { q: `${n1} notebooks cost ${money(c1)}. At the same price, how much do ${n2} notebooks cost?`, ...mc(money(c2), [money(round(c1 * n2 / n1 + unit, 2)), money(round(c1 + n2 - n1, 2)), money(round(c1 * 2, 2))], () => money(c2 + R(-5, 5) * 0.5 || 1)), exp: `Unit price: ${money(c1)} ÷ ${n1} = ${money(unit)} each. ${n2} × ${money(unit)} = ${money(c2)}.` };
+});
+add('ratio', () => {
+  const a = R(2, 9), b = R(2, 9), c = R(2, 12);
+  if (a === b) return G.ratio[0]();
+  const [n, d] = F(b * c, a);
+  return { q: `Solve for x: ${a}/${b} = ${c}/x`, ...mc(mixed(n, d), [mixed(a * c, b), mixed(a, b * c), mixed(b + c, a)], () => fr(R(1, 40), R(1, 6))), exp: `Cross-multiply: ${a}x = ${b} × ${c} = ${b * c}, so x = ${b * c}/${a} = ${mixed(n, d)}.` };
+});
+add('ratio', () => {
+  const sc = pick([25, 40, 50, 60, 75, 100]), inch = pick([1.5, 2, 2.5, 3, 3.5, 4.5, 6]);
+  const ans = round(sc * inch, 2);
+  return { q: `On a map, 1 inch represents ${sc} miles. Two towns are ${fmtN(inch)} inches apart on the map. How far apart are they in real life?`, ...mc(fmtN(ans) + ' miles', [fmtN(round(sc / inch, 1)) + ' miles', fmtN(sc + inch) + ' miles', fmtN(ans * 2) + ' miles'], () => fmtN(ans + R(-4, 4) * 5) + ' miles'), exp: `${fmtN(inch)} × ${sc} = ${fmtN(ans)} miles.` };
+});
+add('exp', () => {
+  const b = pick([2, 3, 4, 5, 10]), e = R(1, 3);
+  const [n, d] = [1, b ** e];
+  return { q: `What is ${b}${sup(-e)}?`, ...mc(fr(n, d), [fmtN(-(b ** e)), fmtN(-b * e), fr(1, b * e)], () => fr(1, R(2, 200))), exp: `A negative exponent means reciprocal: ${b}${sup(-e)} = 1 / ${b}${sup(e)} = ${fr(1, d)}. It is NOT a negative number.` };
+});
+add('exp', () => {
+  const b = pick([2, 3, 5, 'x', 'a']), m = R(2, 8), n = R(2, 6), k = R(1, 4);
+  const res = m + n - k;
+  return { q: `Simplify: (${b}${sup(m)} · ${b}${sup(n)}) ÷ ${b}${sup(k)}`, ...mc(`${b}${sup(res)}`, [`${b}${sup(m * n - k)}`, `${b}${sup(m * n / k % 1 ? m + n + k : m * n / k)}`, `${b}${sup(m + n + k)}`], () => `${b}${sup(R(1, 20))}`), exp: `Same base: add exponents when multiplying (${m} + ${n} = ${m + n}), subtract when dividing (${m + n} − ${k} = ${res}).` };
+});
+add('exp', () => {
+  const a = R(2, 9), b = R(2, 5), x = R(2, 6), y = R(2, 6);
+  let c = a * b, e = x + y; let s = c >= 10 ? [c / 10, e + 1] : [c, e];
+  return { q: `What is (${a} × 10${sup(x)}) × (${b} × 10${sup(y)}) in scientific notation?`, ...mc(`${fmtN(s[0])} × 10${sup(s[1])}`, [`${c} × 10${sup(e)}`, `${fmtN(s[0])} × 10${sup(x * y)}`, `${fmtN(s[0])} × 10${sup(s[1] + 1)}`, `${a + b} × 10${sup(e)}`], () => `${R(1, 9)} × 10${sup(R(2, 14))}`), exp: `Multiply the numbers (${a} × ${b} = ${c}) and add exponents (${x} + ${y} = ${e}). ${c >= 10 ? `${c} is not between 1 and 10, so rewrite ${c} × 10${sup(e)} as ${fmtN(s[0])} × 10${sup(s[1])}.` : ''}` };
+});
+add('exp', () => {
+  const m = R(11, 99) / 10, e = R(3, 7), small = Math.random() < .5;
+  const val = small ? m * 10 ** -e : m * 10 ** e;
+  const std = small ? '0.' + '0'.repeat(e - 1) + String(Math.round(m * 10)).replace(/0$/, '') : Math.round(val).toLocaleString('en-US');
+  return { q: `Write ${std} in scientific notation.`, ...mc(`${fmtN(m)} × 10${sup(small ? -e : e)}`, [`${fmtN(m)} × 10${sup(small ? e : -e)}`, `${fmtN(m)} × 10${sup(small ? -(e + 1) : e + 1)}`, `${fmtN(m * 10)} × 10${sup(small ? -e : e)}`]), exp: `Move the decimal until one nonzero digit is in front (${fmtN(m)}). You moved it ${e} places ${small ? 'right, so the exponent is negative' : 'left, so the exponent is positive'}: ${fmtN(m)} × 10${sup(small ? -e : e)}.` };
+});
+add('roots', () => {
+  const n = R(2, 15);
+  return { q: `What is √${n * n} + √${(n + 1) ** 2}?`, ...mc(fmtN(2 * n + 1), [fmtN(Math.round(Math.sqrt(n * n + (n + 1) ** 2) * 100) / 100), fmtN(n * (n + 1)), fmtN(2 * n)], near(2 * n + 1)), exp: `√${n * n} = ${n} and √${(n + 1) ** 2} = ${n + 1}. Sum = ${2 * n + 1}. Note: √a + √b is NOT √(a+b).` };
+});
+add('roots', () => {
+  const a = pick([2, 3, 5, 6, 7]), k = R(2, 6), v = a * k * k;
+  return { q: `Simplify √${v}.`, ...mc(`${k}√${a}`, [`${a}√${k}`, `${k * k}√${a}`, `${k}√${a * k}`], () => `${R(2, 9)}√${R(2, 7)}`), exp: `Find the largest perfect square factor: ${v} = ${k * k} × ${a}. So √${v} = √${k * k} · √${a} = ${k}√${a}.` };
+});
+add('roots', () => {
+  const s = R(2, 12), cube = Math.random() < .5;
+  return cube ? { q: `A cube has volume ${s ** 3} cubic cm. What is the length of one edge?`, ...mc(`${s} cm`, [`${round(s ** 3 / 3, 1)} cm`, `${round(Math.sqrt(s ** 3), 1)} cm`, `${s * s} cm`]), exp: `Edge = ∛${s ** 3} = ${s}, because ${s}³ = ${s ** 3}.` } :
+    { q: `A square garden has area ${s * s} square feet. What is the length of one side?`, ...mc(`${s} ft`, [`${s * s / 4} ft`, `${s * s / 2} ft`, `${s * 2} ft`]), exp: `Side = √(area) = √${s * s} = ${s} ft.` };
+});
+add('expr', () => {
+  const a = nz(-6, 6), b = nz(-9, 9), c = nz(-6, 6), d = nz(-9, 9), k = R(2, 5);
+  // k(ax + b) + (cx + d)
+  const A = k * a + c, B = k * b + d;
+  return { q: `Simplify: ${k}(${lin(a, b)}) + (${lin(c, d)})`, ...mc(lin(A, B), [lin(k * a + c, b + d), lin(a + c, k * b + d), lin(k * a - c, k * b - d)], () => lin(nz(-20, 20), nz(-30, 30))), exp: `Distribute: ${lin(k * a, k * b)}. Then combine like terms: x-terms ${k * a} + ${c < 0 ? '(' + c + ')' : c} = ${A}, constants ${k * b} + ${d < 0 ? '(' + d + ')' : d} = ${B}. Result: ${lin(A, B)}.` };
+});
+add('expr', () => {
+  const a = R(2, 5), b = nz(-6, 6), c = R(1, 4), x = nz(-4, 5);
+  const val = a * x * x + b * x - c;
+  return { q: `Evaluate ${a}x² ${sgn(b)} ${Math.abs(b)}x − ${c} when x = ${fmtN(x)}.`, ...mc(fmtN(val), [fmtN(-a * x * x + b * x - c), fmtN((a * x) ** 2 + b * x - c), fmtN(a * x * 2 + b * x - c)], near(val)), exp: `Substitute carefully with parentheses: ${a}(${fmtN(x)})² ${sgn(b)} ${Math.abs(b)}(${fmtN(x)}) − ${c} = ${a}(${x * x}) ${sgn(b * x)} ${Math.abs(b * x)} − ${c} = ${val}. A negative number squared is positive.` };
+});
+add('expr', () => {
+  const p = pick([['5 less than twice a number n', '2n − 5', ['5 − 2n', '2(n − 5)', '2 − 5n']], ['three times the sum of a number n and 4', '3(n + 4)', ['3n + 4', 'n + 12', '3 + n + 4']], ['the quotient of a number n and 6, increased by 2', 'n/6 + 2', ['6/n + 2', 'n/(6 + 2)', '6n + 2']], ['8 more than the product of 7 and a number n', '7n + 8', ['7(n + 8)', '8n + 7', '15n']], ['the square of a number n, decreased by 9', 'n² − 9', ['(n − 9)²', '9 − n²', '2n − 9']]]);
+  return { q: `Which expression means "${p[0]}"?`, ...mc(p[1], p[2]), exp: `Translate piece by piece: ${p[1]}. Watch the order in phrases like "less than" — "5 less than x" is x − 5.` };
+});
+add('eq', () => {
+  const x = nz(-9, 12), a = R(2, 9), c = nz(-8, 8); if (a === c) return G.eq[0]();
+  const b = nz(-15, 15), d = (a - c) * x + b;
+  return { q: `Solve for x: ${lin(a, b)} = ${lin(c, d)}`, ...mc(fmtN(x), [fmtN(-x), fmtN(round((d + b) / (a - c), 2)), fmtN(round((d - b) / (a + c || 1), 2)), fmtN(x + 1)], near(x)), exp: `Move x-terms to one side and numbers to the other: ${a - c}x = ${d} − (${b}) = ${d - b}. So x = ${d - b} ÷ ${a - c} = ${x}.` };
+});
+add('eq', () => {
+  const x = R(-6, 10), k = R(2, 5), a = nz(-4, 6), b = R(1, 9);
+  const rhs = k * (x + a) - b;
+  return { q: `Solve for x: ${k}(x ${sgn(a)} ${Math.abs(a)}) − ${b} = ${fmtN(rhs)}`, ...mc(fmtN(x), [fmtN(round((rhs + b) / k + a, 2)), fmtN(round((rhs - b) / k - a, 2)), fmtN(round((rhs + b - a) / k, 2)), fmtN(x + 2)], near(x)), exp: `Add ${b}: ${k}(x ${sgn(a)} ${Math.abs(a)}) = ${rhs + b}. Divide by ${k}: x ${sgn(a)} ${Math.abs(a)} = ${(rhs + b) / k}. So x = ${x}.` };
+});
+add('eq', () => {
+  const x = R(2, 20) * pick([1, 2]), d = pick([2, 3, 4, 5]), b = R(1, 9);
+  if (x % d) return G.eq[0]();
+  const r = x / d + b;
+  return { q: `Solve for x: x/${d} + ${b} = ${r}`, ...mc(fmtN(x), [fmtN((r + b) * d), fmtN(r * d - b), fmtN((r - b) / d)], near(x)), exp: `Subtract ${b}: x/${d} = ${r - b}. Multiply by ${d}: x = ${x}.` };
+});
+add('eq', () => {
+  const w = R(4, 15), extra = R(2, 9), P = 2 * (w + w + extra);
+  return { q: `A rectangle's length is ${extra} cm more than its width. Its perimeter is ${P} cm. What is the width?`, ...mc(`${w} cm`, [`${w + extra} cm`, `${(P - extra) / 2} cm`, `${round((P - extra) / 4, 1)} cm`]), exp: `Let width = w, length = w + ${extra}. 2w + 2(w + ${extra}) = ${P} → 4w + ${2 * extra} = ${P} → 4w = ${P - 2 * extra} → w = ${w}.` };
+});
+add('eq', () => {
+  const kind = pick(['none', 'all']); const a = R(2, 6), b = R(1, 9);
+  const rhs = kind === 'all' ? `${a}(x + ${b})` : `${a}(x + ${b + 1})`;
+  return { q: `How many solutions does ${a}x + ${a * b} = ${rhs} have?`, ...mc(kind === 'all' ? 'Infinitely many' : 'No solution', ['Exactly one', kind === 'all' ? 'No solution' : 'Infinitely many', 'Exactly two']), exp: `Distribute the right side: ${kind === 'all' ? `${a}x + ${a * b}. Both sides are identical, so every x works: infinitely many solutions.` : `${a}x + ${a * (b + 1)}. The x-terms cancel and you get ${a * b} = ${a * (b + 1)}, which is false: no solution.`}` };
+});
+add('ineq', () => {
+  const a = nz(-6, -2), b = nz(-9, 9), x = nz(-6, 6), c = a * x + b, op = pick(['<', '>', '≤', '≥']);
+  const flip = { '<': '>', '>': '<', '≤': '≥', '≥': '≤' }[op];
+  return { q: `Solve: ${lin(a, b)} ${op} ${fmtN(c)}`, ...mc(`x ${flip} ${fmtN(x)}`, [`x ${op} ${fmtN(x)}`, `x ${flip} ${fmtN(-x)}`, `x ${op} ${fmtN(-x)}`]), exp: `Subtract ${b}: ${a}x ${op} ${c - b}. Divide by ${a} — dividing by a NEGATIVE flips the sign: x ${flip} ${fmtN(x)}.` };
+});
+add('ineq', () => {
+  const fee = R(10, 40), rate = pick([3, 4, 5, 6, 8]), budget = fee + rate * R(5, 15) + R(0, rate - 1);
+  const mx = Math.floor((budget - fee) / rate);
+  return { q: `A gym charges a $${fee} sign-up fee plus $${rate} per visit. Mahi has $${budget}. What is the greatest number of visits she can pay for?`, ...mc(fmtN(mx), [fmtN(mx + 1), fmtN(Math.floor(budget / rate)), fmtN(Math.ceil((budget + fee) / rate))], near(mx)), exp: `${fee} + ${rate}v ≤ ${budget} → ${rate}v ≤ ${budget - fee} → v ≤ ${round((budget - fee) / rate, 2)}. Visits must be whole, so the most is ${mx}.` };
+});
+add('ineq', () => {
+  const v = R(-5, 8), op = pick(['<', '≥']);
+  const word = op === '<' ? `an open circle at ${v} and shading to the left` : `a closed (filled) circle at ${v} and shading to the right`;
+  return { q: `A number line shows ${word}. Which inequality does it show?`, ...mc(`x ${op} ${fmtN(v)}`, [`x ${op === '<' ? '≤' : '>'} ${fmtN(v)}`, `x ${op === '<' ? '>' : '≤'} ${fmtN(v)}`, `x ${op === '<' ? '≥' : '<'} ${fmtN(v)}`]), exp: `Open circle means the endpoint is NOT included (< or >). Closed circle means it IS included (≤ or ≥). Left = less than, right = greater than.` };
+});
+add('sys', () => {
+  const x = nz(-5, 8), y = nz(-5, 8), a = R(1, 4), b = nz(-4, 4), c = R(1, 4), d = nz(-4, 4);
+  if (a * d - b * c === 0) return G.sys[0]();
+  const e = a * x + b * y, f = c * x + d * y;
+  return { q: `Solve the system:<br>${lin(a, 0).replace(/ \+ 0$/, '')}${term(b, 'y')} = ${fmtN(e)}<br>${lin(c, 0).replace(/ \+ 0$/, '')}${term(d, 'y')} = ${fmtN(f)}`.replace(/(^|>)0 /g, '$1'), ...mc(`(${fmtN(x)}, ${fmtN(y)})`, [`(${fmtN(y)}, ${fmtN(x)})`, `(${fmtN(-x)}, ${fmtN(y)})`, `(${fmtN(x)}, ${fmtN(-y)})`, `(${fmtN(x + 1)}, ${fmtN(y - 1)})`]), exp: `Use elimination or substitution. x = ${x}, y = ${y}. Check in both: ${a}(${x}) + ${b}(${y}) = ${e} ✓ and ${c}(${x}) + ${d}(${y}) = ${f} ✓.` };
+});
+add('sys', () => {
+  const pa = pick([5, 6, 8, 10]), pc = pick([2, 3, 4]), na = R(10, 60), nc = R(10, 60), T = na + nc, M = pa * na + pc * nc;
+  return { q: `A school play sold ${T} tickets. Adult tickets cost $${pa} and student tickets cost $${pc}. Total sales were $${M}. How many adult tickets were sold?`, ...mc(fmtN(na), [fmtN(nc), fmtN(Math.round(M / (pa + pc))), fmtN(Math.round(T / 2))], near(na)), exp: `a + s = ${T} and ${pa}a + ${pc}s = ${M}. Substitute s = ${T} − a: ${pa}a + ${pc}(${T} − a) = ${M} → ${pa - pc}a = ${M - pc * T} → a = ${na}.` };
+});
+add('sys', () => {
+  const m = nz(-4, 4), b1 = nz(-6, 6), b2 = b1 + nz(-5, 5);
+  return { q: `How many solutions does this system have?<br>y = ${lin(m, b1)}<br>y = ${lin(m, b2)}`, ...mc('No solution', ['Exactly one', 'Infinitely many', 'Exactly two']), exp: `Both lines have slope ${m} but different y-intercepts (${b1} and ${b2}). Parallel lines never meet, so there is no solution.` };
+});
+add('linapp', () => {
+  const x1 = R(-6, 4), y1 = R(-6, 8), dx = nz(1, 6), dy = nz(-9, 9), x2 = x1 + dx, y2 = y1 + dy;
+  return { q: `What is the slope of the line through (${fmtN(x1)}, ${fmtN(y1)}) and (${fmtN(x2)}, ${fmtN(y2)})?`, ...mc(fr(dy, dx), [fr(dx, dy), fr(-dy, dx), fr(y2 + y1, x2 + x1 || 1)], () => fr(nz(-9, 9), R(1, 6))), exp: `Slope = (y₂ − y₁)/(x₂ − x₁) = (${fmtN(y2)} − ${fmtN(y1)})/(${fmtN(x2)} − ${fmtN(x1)}) = ${dy}/${dx} = ${fr(dy, dx)}. Rise over run — y on top.` };
+});
+add('linapp', () => {
+  const m = nz(-5, 5), b = nz(-8, 8), x1 = R(1, 4), y1 = m * x1 + b;
+  return { q: `A line has slope ${fmtN(m)} and passes through (${x1}, ${fmtN(y1)}). What is its equation?`, ...mc(`y = ${lin(m, b)}`, [`y = ${lin(m, y1)}`, `y = ${lin(b, m)}`, `y = ${lin(m, -b)}`, `y = ${lin(-m, b)}`]), exp: `Use y = mx + b: ${fmtN(y1)} = ${fmtN(m)}(${x1}) + b → b = ${fmtN(y1)} − (${fmtN(m * x1)}) = ${fmtN(b)}. So y = ${lin(m, b)}.` };
+});
+add('linapp', () => {
+  const fee = pick([15, 20, 25, 30, 40]), r = pick([2, 3, 4.5, 5, 6, 7.5]), h = R(3, 12);
+  const cost = round(fee + r * h, 2);
+  const ctx = pick([['A bike rental', 'hour', 'hours'], ['A plumber', 'hour of work', 'hours of work'], ['A phone plan', 'GB of data', 'GB of data']]);
+  return { q: `${ctx[0]} costs C = ${r}h + ${fee} dollars, where h is each ${ctx[1]}. What does ${r} represent?`, ...mc(`The cost per ${ctx[1]}`, ['The starting (fixed) fee', `The total cost for ${h} ${ctx[2]}`, `The number of ${ctx[2]}`]), exp: `In y = mx + b, the slope m is the rate of change — here, dollars per ${ctx[1]}. The ${fee} is the y-intercept, the fixed fee.` };
+});
+add('linapp', () => {
+  const m = nz(-4, 4), b = nz(-9, 9);
+  const bx = round(-b / m, 2);
+  const isInt = Number.isInteger(-b / m);
+  return { q: `What is the x-intercept of y = ${lin(m, b)}?`, ...mc(`(${isInt ? fmtN(-b / m) : fr(-b, m)}, 0)`, [`(0, ${fmtN(b)})`, `(${isInt ? fmtN(b / m) : fr(b, m)}, 0)`, `(${fmtN(b)}, 0)`]), exp: `Set y = 0: 0 = ${lin(m, b)} → x = ${fr(-b, m)}. The x-intercept is where the line crosses the x-axis (y = 0).` };
+});
+add('linapp', () => {
+  const m = nz(-4, 4); const perp = Math.random() < .5;
+  const corr = perp ? fr(-1, m) : fr(m, 1);
+  return { q: `Line k has equation y = ${lin(m, 3)}. What is the slope of a line ${perp ? 'perpendicular' : 'parallel'} to line k?`, ...mc(corr, [perp ? fr(m, 1) : fr(-1, m), perp ? fr(1, m) : fr(-m, 1), perp ? fr(-m, 1) : fr(1, m), '3'], () => fr(nz(-9, 9), R(1, 4))), exp: perp ? `Perpendicular slopes are negative reciprocals: flip ${m} and change the sign → ${fr(-1, m)}.` : `Parallel lines have the same slope: ${m}.` };
+});
+add('stats', () => {
+  const n = pick([5, 6, 7]), data = Array.from({ length: n }, () => R(2, 30)); data[n - 1] += (n - data.reduce((a, b) => a + b, 0) % n) % n; const s = data.reduce((a, b) => a + b, 0);
+  const sorted = data.slice().sort((a, b) => a - b); const med = n % 2 ? sorted[(n - 1) / 2] : (sorted[n / 2 - 1] + sorted[n / 2]) / 2;
+  const askMean = Math.random() < .5;
+  const mean = round(s / n, 2);
+  const corr = askMean ? fmtN(mean) : fmtN(med);
+  return { q: `Data set: ${data.join(', ')}. What is the ${askMean ? 'mean' : 'median'}?`, ...mc(corr, [askMean ? fmtN(med) : fmtN(mean), fmtN(data[Math.floor(n / 2)]), fmtN(Math.max(...data) - Math.min(...data)), fmtN(round(s / (n - 1), 2))], () => fmtN(R(2, 30))), exp: askMean ? `Add all values (${s}) and divide by how many there are (${n}): ${s} ÷ ${n} = ${fmtN(mean)}.` : `Put in order first: ${sorted.join(', ')}. ${n % 2 ? `The middle value is ${med}.` : `The two middle values are ${sorted[n / 2 - 1]} and ${sorted[n / 2]}; their average is ${med}.`}` };
+});
+add('stats', () => {
+  const n = pick([4, 5]), target = R(70, 92), have = Array.from({ length: n - 1 }, () => R(target - 12, Math.min(100, target + 10)));
+  const need = target * n - have.reduce((a, b) => a + b, 0);
+  if (need > 100 || need < 40) return G.stats[0]();
+  return { q: `Mahi's first ${n - 1} quiz scores are ${have.join(', ')}. What score does she need on quiz ${n} to have a mean of exactly ${target}?`, ...mc(fmtN(need), [fmtN(target), fmtN(Math.round(have.reduce((a, b) => a + b, 0) / (n - 1))), fmtN(need + n)], near(need)), exp: `A mean of ${target} over ${n} quizzes needs a total of ${target} × ${n} = ${target * n}. She has ${have.reduce((a, b) => a + b, 0)}, so she needs ${target * n} − ${have.reduce((a, b) => a + b, 0)} = ${need}.` };
+});
+add('stats', () => {
+  const base = Array.from({ length: 5 }, () => R(10, 20)), out = R(60, 95);
+  const data = shuffle([...base, out]);
+  return { q: `Data set: ${data.join(', ')}. Which measure best describes a typical value?`, ...mc('Median, because the outlier pulls the mean up', ['Mean, because it uses every value', 'Range, because it shows the spread', 'Mean, because the outlier pulls the median up']), exp: `${out} is an outlier. The mean gets pulled toward outliers; the median does not, so the median better represents a typical value.` };
+});
+add('stats', () => {
+  const data = Array.from({ length: 7 }, () => R(1, 40)).sort((a, b) => a - b);
+  const range = data[6] - data[0];
+  return { q: `What is the range of: ${shuffle(data).join(', ')}?`, ...mc(fmtN(range), [fmtN(data[6]), fmtN(data[3]), fmtN(range + data[0])], near(range)), exp: `Range = greatest − least = ${data[6]} − ${data[0]} = ${range}.` };
+});
+add('stats', () => {
+  const r = pick([['As hours of practice increase, test scores tend to increase.', 'Positive correlation'], ['As the price of a ticket increases, the number sold tends to decrease.', 'Negative correlation'], ['Shoe size and favorite number show no pattern.', 'No correlation']]);
+  return { q: `${r[0]} What kind of relationship is this on a scatter plot?`, ...mc(r[1], ['Positive correlation', 'Negative correlation', 'No correlation', 'A perfect linear function']), exp: `Both rising together = positive; one rising while the other falls = negative; no trend = no correlation.` };
+});
+add('prob', () => {
+  const r = R(2, 8), b = R(2, 8), g = R(1, 6), T = r + b + g, c = pick([['red', r], ['blue', b], ['green', g]]);
+  return { q: `A bag has ${r} red, ${b} blue, and ${g} green marbles. One marble is picked at random. What is the probability it is ${c[0]}?`, ...mc(fr(c[1], T), [fr(c[1], T - c[1]), fr(T - c[1], T), fr(1, 3)], () => fr(R(1, T), T)), exp: `Probability = favorable ÷ total = ${c[1]} ÷ ${T} = ${fr(c[1], T)}.` };
+});
+add('prob', () => {
+  const r = R(2, 6), b = R(2, 6), T = r + b;
+  const [n, d] = F(r * (r - 1), T * (T - 1));
+  return { q: `A box has ${r} red and ${b} blue pens. Two pens are drawn without replacement. What is the probability both are red?`, ...mc(fr(n, d), [fr(r * r, T * T), fr(r, T), fr(2 * r, T)], () => fr(R(1, 20), R(21, 90))), exp: `First red: ${r}/${T}. Then one red is gone: ${r - 1}/${T - 1}. Multiply: ${r}/${T} × ${r - 1}/${T - 1} = ${fr(n, d)}.` };
+});
+add('prob', () => {
+  const s = pick([3, 4, 5]), p = pick([2, 3, 4]), d = pick([2, 3]);
+  return { q: `A café offers ${s} sandwiches, ${p} sides, and ${d} drinks. How many different meals with one of each are possible?`, ...mc(fmtN(s * p * d), [fmtN(s + p + d), fmtN(s * p + d), fmtN(s * p * d * 2)], near(s * p * d)), exp: `Counting principle: multiply the choices: ${s} × ${p} × ${d} = ${s * p * d}.` };
+});
+add('prob', () => {
+  const T = pick([30, 40, 50]), a = R(10, 20), b = R(10, 20), both = R(3, 9), neither = T - (a + b - both);
+  if (neither < 0) return G.prob[0]();
+  return { q: `In a class of ${T}, ${a} play soccer, ${b} play basketball, and ${both} play both. How many play neither?`, ...mc(fmtN(neither), [fmtN(T - a - b), fmtN(T - a - b + 2 * both), fmtN(both)], near(neither)), exp: `Students in at least one sport: ${a} + ${b} − ${both} = ${a + b - both} (subtract "both" so they aren't counted twice). Neither: ${T} − ${a + b - both} = ${neither}.` };
+});
+add('prob', () => {
+  const p = pick([0.2, 0.25, 0.3, 0.4, 0.6]), n = pick([40, 60, 80, 120, 200]);
+  return { q: `The probability a spinner lands on blue is ${p}. If it is spun ${n} times, about how many times should it land on blue?`, ...mc(fmtN(p * n), [fmtN(n - p * n), fmtN(round(n / (p * 10), 0)), fmtN(p * 100)], near(p * n)), exp: `Expected count = probability × trials = ${p} × ${n} = ${fmtN(p * n)}.` };
+});
+add('geo', () => {
+  const r = R(2, 10), d = Math.random() < .5;
+  const area = r * r;
+  return d ? { q: `A circle has diameter ${2 * r} m. What is its area?`, ...mc(`${area}π m²`, [`${4 * area}π m²`, `${2 * r}π m²`, `${r}π m²`, `${4 * r}π m²`]), exp: `Radius = half the diameter = ${r}. Area = πr² = π(${r})² = ${area}π m².` } :
+    { q: `A circle has radius ${r} in. What is its circumference?`, ...mc(`${2 * r}π in`, [`${r * r}π in`, `${r}π in`, `${4 * r}π in`, `${2 * r * r}π in`]), exp: `Circumference = 2πr = 2π(${r}) = ${2 * r}π in.` };
+});
+add('geo', () => {
+  const r = R(2, 6), h = R(3, 12);
+  return { q: `A cylinder has radius ${r} cm and height ${h} cm. What is its volume?`, ...mc(`${r * r * h}π cm³`, [`${2 * r * h}π cm³`, `${r * h}π cm³`, `${r * r * h * 2}π cm³`, `${2 * r * r * h + 2 * r * r}π cm³`]), exp: `V = πr²h = π(${r * r})(${h}) = ${r * r * h}π cm³.` };
+});
+add('geo', () => {
+  const r = 3 * R(1, 4), h = R(2, 10);
+  return { q: `A cone has radius ${r} and height ${h}. What is its volume?`, ...mc(`${r * r * h / 3}π`, [`${r * r * h}π`, `${r * h}π`, `${r * r * h * 3}π`, `${2 * r * r * h}π`]), exp: `V = (1/3)πr²h = (1/3)π(${r * r})(${h}) = ${r * r * h / 3}π. A cone is one third of the matching cylinder.` };
+});
+add('geo', () => {
+  const l = R(3, 12), w = R(2, 9), h = R(2, 8);
+  const sa = Math.random() < .5;
+  return sa ? { q: `What is the surface area of a box ${l} × ${w} × ${h}?`, ...mc(fmtN(2 * (l * w + l * h + w * h)), [fmtN(l * w * h), fmtN(l * w + l * h + w * h), fmtN(2 * (l + w + h))], () => fmtN(R(50, 600))), exp: `SA = 2(lw + lh + wh) = 2(${l * w} + ${l * h} + ${w * h}) = ${2 * (l * w + l * h + w * h)} square units.` } :
+    { q: `What is the volume of a box ${l} × ${w} × ${h}?`, ...mc(fmtN(l * w * h), [fmtN(2 * (l * w + l * h + w * h)), fmtN(l + w + h), fmtN(l * w + h)], () => fmtN(R(50, 900))), exp: `V = l × w × h = ${l} × ${w} × ${h} = ${l * w * h} cubic units.` };
+});
+add('geo', () => {
+  const b = R(4, 16), h = R(3, 12), k = pick(['triangle', 'parallelogram', 'trapezoid']);
+  if (k === 'trapezoid') { const b2 = b + R(2, 8); const A = (b + b2) * h / 2; return { q: `A trapezoid has bases ${b} and ${b2} and height ${h}. What is its area?`, ...mc(fmtN(A), [fmtN((b + b2) * h), fmtN(b * b2 * h / 2), fmtN(b * h)], near(A)), exp: `A = ½(b₁ + b₂)h = ½(${b} + ${b2})(${h}) = ${fmtN(A)}.` }; }
+  const A = k === 'triangle' ? b * h / 2 : b * h;
+  return { q: `A ${k} has base ${b} and height ${h}. What is its area?`, ...mc(fmtN(A), [fmtN(k === 'triangle' ? b * h : b * h / 2), fmtN(2 * (b + h)), fmtN(b + h)], near(A)), exp: k === 'triangle' ? `A = ½bh = ½(${b})(${h}) = ${fmtN(A)}.` : `A = bh = ${b} × ${h} = ${A}.` };
+});
+add('geo', () => {
+  const k = pick([2, 3, 4]); const s = R(2, 5);
+  return { q: `A square with side ${s} is enlarged by a scale factor of ${k}. By what factor does its area increase?`, ...mc(fmtN(k * k), [fmtN(k), fmtN(2 * k), fmtN(k ** 3)]), exp: `Lengths multiply by ${k}, so area multiplies by ${k}² = ${k * k}. (Old area ${s * s}, new area ${(k * s) ** 2}.)` };
+});
+add('tri', () => {
+  const tr = pick([[3, 4, 5], [5, 12, 13], [8, 15, 17], [7, 24, 25], [6, 8, 10], [9, 12, 15]]); const findLeg = Math.random() < .5;
+  return findLeg ? { q: `A right triangle has hypotenuse ${tr[2]} and one leg ${tr[0]}. How long is the other leg?`, ...mc(fmtN(tr[1]), [fmtN(tr[2] - tr[0]), fmtN(round(Math.sqrt(tr[2] ** 2 + tr[0] ** 2), 2)), fmtN(tr[1] + 1)], near(tr[1])), exp: `a² + b² = c²: ${tr[0]}² + b² = ${tr[2]}² → b² = ${tr[2] ** 2} − ${tr[0] ** 2} = ${tr[1] ** 2} → b = ${tr[1]}.` } :
+    { q: `A ladder leans against a wall. Its base is ${tr[0]} ft from the wall and it reaches ${tr[1]} ft up. How long is the ladder?`, ...mc(`${tr[2]} ft`, [`${tr[0] + tr[1]} ft`, `${tr[2] + 1} ft`, `${tr[1] - tr[0]} ft`]), exp: `The ladder is the hypotenuse: √(${tr[0]}² + ${tr[1]}²) = √${tr[2] ** 2} = ${tr[2]} ft.` };
+});
+add('tri', () => {
+  const a = R(30, 80), b = R(20, 150 - a), c = 180 - a - b;
+  return { q: `Two angles of a triangle measure ${a}° and ${b}°. What is the third angle?`, ...mc(`${c}°`, [`${360 - a - b}°`, `${Math.abs(a - b)}°`, `${90 - Math.min(a, b)}°`, `${c + 10}°`]), exp: `Triangle angles add to 180°: 180 − ${a} − ${b} = ${c}°.` };
+});
+add('tri', () => {
+  const a = R(20, 160), sup = Math.random() < .6 || a >= 90;
+  return sup ? { q: `Two angles are supplementary. One measures ${a}°. What is the other?`, ...mc(`${180 - a}°`, [`${90 - a > 0 ? 90 - a : 360 - a}°`, `${360 - a}°`, `${a}°`]), exp: `Supplementary angles add to 180°: 180 − ${a} = ${180 - a}°.` } :
+    { q: `Two angles are complementary. One measures ${a}°. What is the other?`, ...mc(`${90 - a}°`, [`${180 - a}°`, `${360 - a}°`, `${a}°`]), exp: `Complementary angles add to 90°: 90 − ${a} = ${90 - a}°.` };
+});
+add('tri', () => {
+  const s = R(3, 9), k = pick([1.5, 2, 2.5, 3]), t = R(4, 12);
+  return { q: `Triangle ABC is similar to triangle DEF. AB = ${s} and DE = ${fmtN(s * k)}. If BC = ${t}, what is EF?`, ...mc(fmtN(t * k), [fmtN(t + s * k - s), fmtN(round(t / k, 2)), fmtN(t * 2)], near(t * k)), exp: `Scale factor = DE/AB = ${fmtN(s * k)}/${s} = ${k}. EF = BC × ${k} = ${t} × ${k} = ${fmtN(t * k)}.` };
+});
+add('tri', () => {
+  const x = R(10, 40), k = R(10, 40);
+  return { q: `Two lines intersect. One angle is (2x + ${k})° and the angle vertical to it is ${2 * x + k}°. What is x?`, ...mc(fmtN(x), [fmtN(2 * x + k), fmtN(round((180 - 2 * x - k) / 2, 1)), fmtN(x + k)], near(x)), exp: `Vertical angles are equal: 2x + ${k} = ${2 * x + k} → 2x = ${2 * x} → x = ${x}.` };
+});
+add('tri', () => {
+  const x1 = R(-5, 3), y1 = R(-5, 3), tr = pick([[3, 4, 5], [6, 8, 10], [5, 12, 13]]);
+  return { q: `What is the distance between (${fmtN(x1)}, ${fmtN(y1)}) and (${fmtN(x1 + tr[0])}, ${fmtN(y1 + tr[1])})?`, ...mc(fmtN(tr[2]), [fmtN(tr[0] + tr[1]), fmtN(tr[2] ** 2), fmtN(Math.abs(tr[1] - tr[0]))], near(tr[2])), exp: `d = √((Δx)² + (Δy)²) = √(${tr[0]}² + ${tr[1]}²) = √${tr[2] ** 2} = ${tr[2]}.` };
+});
+
+// ---------- AAF ----------
+add('poly', () => {
+  const p = nz(-9, 9), q = nz(-9, 9); const b = p + q, c = p * q;
+  const fac = (r) => `(x ${sgn(r)} ${Math.abs(r)})`;
+  return { q: `Factor: x²${term(b)}${cterm(c)}`.replace('x² + 0x', 'x²'), ...mc(`${fac(p)}${fac(q)}`, [`${fac(-p)}${fac(-q)}`, `${fac(p)}${fac(-q)}`, `${fac(-p)}${fac(q)}`, `${fac(b)}${fac(1)}`]), exp: `Find two numbers that multiply to ${c} and add to ${b}: ${p} and ${q}. So x²${term(b)}${cterm(c)} = ${fac(p)}${fac(q)}.` };
+});
+add('poly', () => {
+  const a = nz(-6, 6), b = nz(-6, 6);
+  const fac = r => `(x ${sgn(r)} ${Math.abs(r)})`;
+  return { q: `Multiply: ${fac(a)}${fac(b)}`, ...mc(`x²${term(a + b)}${cterm(a * b)}`, [`x²${cterm(a * b)}`, `x²${term(a * b)}${cterm(a + b)}`, `x²${term(a - b || 1)}${cterm(-a * b)}`, `2x${cterm(a + b)}`]), exp: `FOIL: x·x + x(${b}) + ${a}·x + (${a})(${b}) = x²${term(a + b)}${cterm(a * b)}.` };
+});
+add('poly', () => {
+  const g = R(2, 6), a = R(1, 5); let b = R(1, 9); while (gcd(a, b) !== 1) b = R(1, 9);
+  return { q: `Factor completely: ${g * a}x² + ${g * b}x`, ...mc(`${g}x(${a === 1 ? '' : a}x + ${b})`, [`${g}(${a * 1 === 1 ? '' : a}x² + ${b}x)`, `x(${g * a}x + ${g})`, `${g}x(${a === 1 ? '' : a}x + ${g * b})`]), exp: `The greatest common factor is ${g}x. Divide each term by it: ${g}x(${a === 1 ? '' : a}x + ${b}).` };
+});
+add('poly', () => {
+  const a = R(2, 9);
+  return { q: `Factor: x² − ${a * a}`, ...mc(`(x + ${a})(x − ${a})`, [`(x − ${a})²`, `(x + ${a})²`, `(x − ${a * a})(x + 1)`]), exp: `Difference of squares: a² − b² = (a + b)(a − b). Here x² − ${a}² = (x + ${a})(x − ${a}).` };
+});
+add('quad', () => {
+  const p = nz(-8, 8), q = nz(-8, 8); if (p === q) return G.quad[1]();
+  const b = -(p + q), c = p * q;
+  const s = (u, v) => `x = ${fmtN(Math.min(u, v))} or x = ${fmtN(Math.max(u, v))}`;
+  return { q: `Solve: x²${term(b)}${cterm(c)} = 0`, ...mc(s(p, q), [s(-p, -q), s(p, -q), s(-p, q), s(b, c)]), exp: `Factor: (x ${sgn(-p)} ${Math.abs(p)})(x ${sgn(-q)} ${Math.abs(q)}) = 0. Set each factor to zero: x = ${p} or x = ${q}.` };
+});
+add('quad', () => {
+  const k = R(2, 12), a = pick([1, 2, 3]);
+  return { q: `Solve: ${a === 1 ? '' : a}x² = ${a * k * k}`, ...mc(`x = ±${k}`, [`x = ${k}`, `x = ±${a * k * k / 2}`, `x = ±${k * k}`]), exp: `Divide by ${a}: x² = ${k * k}. Take the square root of both sides: x = ±${k}. Don't forget the negative root!` };
+});
+add('quad', () => {
+  const h = nz(-5, 5), k = nz(-6, 6), up = Math.random() < .5;
+  return { q: `What is the vertex of y = ${up ? '' : '−'}(x ${sgn(-h)} ${Math.abs(h)})² ${sgn(k)} ${Math.abs(k)}?`, ...mc(`(${fmtN(h)}, ${fmtN(k)})`, [`(${fmtN(-h)}, ${fmtN(k)})`, `(${fmtN(h)}, ${fmtN(-k)})`, `(${fmtN(k)}, ${fmtN(h)})`]), exp: `Vertex form y = a(x − h)² + k has vertex (h, k). Careful with the sign inside: x ${sgn(-h)} ${Math.abs(h)} means h = ${h}. Vertex: (${h}, ${k}).` };
+});
+add('quad', () => {
+  const t = R(1, 4), v = 16 * t * 2;
+  return { q: `A ball is thrown up. Its height is h = −16t² + ${v}t. After how many seconds does it hit the ground?`, ...mc(`${2 * t} s`, [`${t} s`, `${v} s`, `${v / 2} s`]), exp: `Set h = 0: −16t² + ${v}t = 0 → t(−16t + ${v}) = 0 → t = 0 or t = ${v}/16 = ${2 * t}. It lands at ${2 * t} seconds.` };
+});
+add('func', () => {
+  const a = nz(-3, 3), b = nz(-6, 6), c = nz(-9, 9), x = nz(-3, 4);
+  const val = a * x * x + b * x + c;
+  return { q: `If f(x) = ${term(a, 'x²', true)}${term(b)}${cterm(c)}, what is f(${fmtN(x)})?`, ...mc(fmtN(val), [fmtN(-a * x * x + b * x + c), fmtN(a * x * 2 + b * x + c), fmtN(a * x * x - b * x + c)], near(val)), exp: `Replace x with (${fmtN(x)}): ${a}(${x * x}) + ${b}(${x}) + ${c} = ${a * x * x} + ${b * x} + ${c} = ${val}.` };
+});
+add('func', () => {
+  const a = nz(-4, 4), b = nz(-6, 6), c = nz(-4, 4), d = nz(-6, 6), x = R(-3, 4);
+  const gx = c * x + d, val = a * gx + b;
+  return { q: `f(x) = ${lin(a, b)} and g(x) = ${lin(c, d)}. What is f(g(${fmtN(x)}))?`, ...mc(fmtN(val), [fmtN(c * (a * x + b) + d), fmtN((a * x + b) * (c * x + d)), fmtN(gx)], near(val)), exp: `Work inside-out: g(${x}) = ${c}(${x}) + ${d} = ${gx}. Then f(${gx}) = ${a}(${gx}) + ${b} = ${val}.` };
+});
+add('func', () => {
+  const sets = shuffle([['{(1, 2), (2, 4), (3, 6), (4, 8)}', true], ['{(1, 2), (1, 3), (2, 4), (3, 5)}', false], ['{(2, 5), (3, 5), (4, 5), (5, 5)}', true], ['{(0, 1), (4, 2), (4, −2), (9, 3)}', false]]);
+  const yes = sets.filter(s => s[1]); const no = sets.filter(s => !s[1]);
+  return { q: `Which relation is NOT a function?`, ...mc(no[0][0], [yes[0][0], yes[1][0], 'All of them are functions']), exp: `A function gives each input exactly one output. In ${no[0][0]}, one x-value is paired with two different y-values. Repeated y-values are fine.` };
+});
+add('func', () => {
+  const m = nz(-5, 5), b = nz(-9, 9), xs = [0, 1, 2, 3];
+  return { q: `Which rule fits this table? x: ${xs.join(', ')} → y: ${xs.map(x => fmtN(m * x + b)).join(', ')}`, ...mc(`y = ${lin(m, b)}`, [`y = ${lin(b, m)}`, `y = ${lin(m, -b)}`, `y = ${lin(-m, b)}`]), exp: `When x = 0, y = ${b} (the y-intercept). Each step in x changes y by ${m} (the slope). So y = ${lin(m, b)}.` };
+});
+add('func', () => {
+  const m = nz(-4, 4), b = nz(-8, 8), y = m * R(-4, 6) + b, x = (y - b) / m;
+  return { q: `f(x) = ${lin(m, b)}. For what value of x does f(x) = ${fmtN(y)}?`, ...mc(fmtN(x), [fmtN(m * y + b), fmtN(round((y + b) / m, 2)), fmtN(-x)], near(x)), exp: `Set ${lin(m, b)} = ${y}. Then ${m}x = ${y - b}, so x = ${x}.` };
+});
+add('rad', () => {
+  const a = R(2, 5), m = R(2, 5), n = R(2, 4);
+  return { q: `Simplify: (${a}x${sup(m)})${sup(n)}`, ...mc(`${a ** n}x${sup(m * n)}`, [`${a * n}x${sup(m * n)}`, `${a ** n}x${sup(m + n)}`, `${a}x${sup(m * n)}`]), exp: `Raise each factor to the ${n}: ${a}${sup(n)} = ${a ** n}, and (x${sup(m)})${sup(n)} = x${sup(m * n)} (multiply exponents).` };
+});
+add('rad', () => {
+  const a = pick([4, 8, 9, 16, 25, 27]), map = { 4: [2, 2], 8: [2, 3], 9: [3, 2], 16: [2, 4], 25: [5, 2], 27: [3, 3] };
+  const [b, e] = map[a]; const root = Math.random() < .5 && e === 2 || e === 3 && Math.random() < .5;
+  if (e === 2) return { q: `What is ${a}^(1/2)?`, ...mc(fmtN(b), [fmtN(a / 2), fmtN(a * a), fr(1, b)]), exp: `A ½ exponent means square root: √${a} = ${b}.` };
+  return { q: `What is ${a}^(${e === 3 ? '2/3' : '1/' + e})?`, ...mc(e === 3 ? fmtN(b * b) : fmtN(b), [fmtN(a * 2 / 3), fmtN(b), fmtN(a * a)].filter(v => v !== (e === 3 ? fmtN(b * b) : fmtN(b)))), exp: e === 3 ? `Cube root first: ∛${a} = ${b}. Then square: ${b}² = ${b * b}.` : `The 1/${e} exponent is the ${e}th root: ${b}.` };
+});
+add('rad', () => {
+  const a = R(2, 6), k = R(2, 5);
+  return { q: `Simplify: ${a}√${k} · ${a + 1}√${k}`, ...mc(fmtN(a * (a + 1) * k), [`${a * (a + 1)}√${k}`, `${2 * a + 1}√${k}`, `${a * (a + 1) * k * k}`]), exp: `Multiply outside numbers (${a} × ${a + 1} = ${a * (a + 1)}) and inside the roots (√${k} · √${k} = ${k}). Total: ${a * (a + 1) * k}.` };
+});
+add('rad', () => {
+  const n = R(3, 7), m = R(1, n - 2);
+  return { q: `Simplify: x${sup(m)} / x${sup(n)} (x ≠ 0)`, ...mc(`${fr(1, 1).replace('1', '')}1/x${sup(n - m)}`, [`x${sup(n - m)}`, `x${sup(m * n)}`, `1/x${sup(n + m)}`]), exp: `Subtract exponents: x${sup(m - n)}. A negative exponent means reciprocal: 1/x${sup(n - m)}.` };
+});
+add('expo', () => {
+  const P = pick([100, 200, 500, 1000]), r = pick([2, 3]), t = R(2, 5);
+  return { q: `A bacteria colony starts with ${P} cells and ${r === 2 ? 'doubles' : 'triples'} every hour. How many cells after ${t} hours?`, ...mc(fmtN(P * r ** t), [fmtN(P * r * t), fmtN(P + r * t), fmtN(P * r ** (t - 1))], () => fmtN(P * R(2, 40))), exp: `Exponential growth: ${P} × ${r}${sup(t)} = ${P} × ${r ** t} = ${fmtN(P * r ** t)}. Each hour multiplies; it doesn't add.` };
+});
+add('expo', () => {
+  const p = pick([5, 10, 20, 25]), g = Math.random() < .5;
+  const b = g ? 1 + p / 100 : 1 - p / 100;
+  return { q: `Which function shows a quantity starting at 300 and ${g ? 'growing' : 'shrinking'} by ${p}% each year?`, ...mc(`y = 300(${fmtN(b)})ˣ`, [`y = 300(${fmtN(g ? 1 - p / 100 : 1 + p / 100)})ˣ`, `y = 300 ${g ? '+' : '−'} ${p}x`, `y = 300(${p / 100})ˣ`]), exp: `Exponential form: y = a(1 ${g ? '+' : '−'} r)ˣ. With r = ${p / 100}, the base is ${fmtN(b)}.` };
+});
+add('expo', () => {
+  const t = pick([['y = 4x + 1', 'linear'], ['y = 4ˣ', 'exponential'], ['y = 0.5ˣ', 'exponential'], ['y = −3x + 7', 'linear']]);
+  return { q: `Which type of function is ${t[0]}?`, ...mc(t[1] === 'linear' ? 'Linear — adds the same amount each step' : 'Exponential — multiplies by the same factor each step', [t[1] === 'linear' ? 'Exponential — multiplies by the same factor each step' : 'Linear — adds the same amount each step', 'Quadratic — its graph is a parabola', 'Not a function']), exp: `Variable in the exponent → exponential. Variable to the first power → linear.` };
+});
+
+// Topic list sorted by strand
+const TOPIC_KEYS = Object.keys(TOPICS);
+function gen(topic) {
+  const list = G[topic];
+  for (let i = 0; i < 6; i++) {
+    try {
+      const raw = pick(list)();
+      if (raw && raw.opts && raw.opts.length === 4 && raw.ans >= 0 && new Set(raw.opts).size === 4) return { ...raw, topic, id: Math.random().toString(36).slice(2, 10) };
+    } catch (e) { }
+  }
+  return gen(pick(TOPIC_KEYS));
+}
+function buildSet(topics, n) {
+  const out = []; for (let i = 0; i < n; i++) out.push(gen(topics[i % topics.length]));
+  return shuffle(out);
+}
+if (typeof module !== 'undefined') module.exports = { G, gen, TOPICS, TOPIC_KEYS };
+
+</script>
+<script>
+// ===================== STATE =====================
+const EXAM = new Date(2026, 10, 20); // Nov 20 2026
+const GOAL = 90;
+const KEY = 'mahi_accuplacer_v1';
+let S = { a: [], mocks: [], missed: {}, done: {}, streak: { n: 0, last: null }, timer: true };
+try { const s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s && s.a) S = Object.assign(S, s); } catch (e) {}
+
+const todayKey = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+const parseKey = k => { const [y, m, d] = k.split('-').map(Number); return new Date(y, m - 1, d); };
+const daysLeft = () => { const t = new Date(); t.setHours(0, 0, 0, 0); return Math.round((EXAM - t) / 86400000); };
+
+let dbDoc = null, saveT = null;
+function save() {
+  if (S.a.length > 2000) S.a = S.a.slice(-2000);
+  const ids = Object.keys(S.missed); if (ids.length > 120) ids.sort((x, y) => S.missed[x].t - S.missed[y].t).slice(0, ids.length - 120).forEach(k => delete S.missed[k]);
+  if (S.mocks.length > 60) S.mocks = S.mocks.slice(-60);
+  S.saved = Date.now();
+  try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {}
+  if (dbDoc) { clearTimeout(saveT); saveT = setTimeout(() => { dbDoc.set(JSON.parse(JSON.stringify(S))).catch(() => {}); }, 1500); }
+}
+// Cloud backup of progress (private to the signed-in viewer), so progress survives a cleared browser.
+(async () => {
+  try {
+    if (!window.claude || !claude.use) return;
+    const [db, user] = await Promise.all([claude.use('db'), claude.use('user')]);
+    if (!db || !user) return;
+    const id = await user.id(); if (!id) return;
+    dbDoc = db.collection('data/users/' + id).doc('accuplacer');
+    const snap = await dbDoc.get();
+    if (snap.exists) {
+      const r = snap.data();
+      if (r && r.a && (r.saved || 0) > (S.saved || 0) && r.a.length >= S.a.length) { S = Object.assign(S, r); try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} rerender(); }
+      else if (S.a.length) save();
+    } else if (S.a.length) save();
+  } catch (e) {}
+})();
+
+function logAnswer(topic, ok) {
+  S.a.push([topic, ok ? 1 : 0, todayKey()]);
+  const t = todayKey();
+  if (S.streak.last !== t) {
+    const y = new Date(); y.setDate(y.getDate() - 1);
+    S.streak.n = S.streak.last === todayKey(y) ? S.streak.n + 1 : 1;
+    S.streak.last = t;
+  }
+}
+function topicStats() {
+  const st = {}; TOPIC_KEYS.forEach(k => st[k] = { n: 0, c: 0, recent: [] });
+  S.a.forEach(([t, c]) => { if (st[t]) { st[t].n++; st[t].c += c; st[t].recent.push(c); } });
+  for (const k in st) { const r = st[k].recent.slice(-15); st[k].acc = r.length ? Math.round(r.reduce((a, b) => a + b, 0) / r.length * 100) : null; st[k].rn = r.length; }
+  return st;
+}
+function readiness() {
+  const ms = S.mocks.filter(m => m.kind !== 'ARI').slice(-3);
+  const rec = S.a.slice(-80); const pa = rec.length >= 10 ? Math.round(rec.reduce((s, x) => s + x[1], 0) / rec.length * 100) : null;
+  if (ms.length) { const ma = Math.round(ms.reduce((s, m) => s + m.pct, 0) / ms.length); return { v: pa == null ? ma : Math.round(ma * .7 + pa * .3), basis: `last ${ms.length} mock test${ms.length > 1 ? 's' : ''} and recent practice` }; }
+  if (pa != null) return { v: pa, basis: `last ${rec.length} practice answers (take a mock test for a truer read)` };
+  return { v: null, basis: 'Take the diagnostic mock test to get a starting score' };
+}
+function weakTopics(n = 3, strands = ['ARI', 'QAS', 'AAF']) {
+  const st = topicStats();
+  const ks = TOPIC_KEYS.filter(k => strands.includes(TOPICS[k].strand));
+  return ks.sort((a, b) => (st[a].acc ?? 70) - (st[b].acc ?? 70) || st[a].n - st[b].n).slice(0, n);
+}
+
+// ===================== STUDY PLAN =====================
+const PLAN = [
+  ['2026-10-14', 'mock', 'QAS', 'Diagnostic mock test', 'Find your starting point. No stress — this is just a baseline.'],
+  ['2026-10-15', 'drill', ['frac', 'dec'], 'Fractions & decimals'],
+  ['2026-10-16', 'drill', ['pct', 'ratio'], 'Percents & proportions'],
+  ['2026-10-17', 'drill', ['ops', 'cmp', 'int'], 'Order of operations, comparing, integers'],
+  ['2026-10-18', 'mock', 'ARI', 'Arithmetic mock test', 'Check the foundations before algebra week.'],
+  ['2026-10-19', 'drill', ['exp', 'roots'], 'Exponents, scientific notation, roots'],
+  ['2026-10-20', 'drill', ['expr', 'eq'], 'Expressions & equations'],
+  ['2026-10-21', 'drill', ['eq', 'ineq'], 'Equations & inequalities'],
+  ['2026-10-22', 'drill', ['sys'], 'Systems of equations'],
+  ['2026-10-23', 'drill', ['linapp'], 'Slope, lines & linear models'],
+  ['2026-10-24', 'drill', ['frac', 'pct', 'eq', 'linapp'], 'Mixed review'],
+  ['2026-10-25', 'mock', 'QAS', 'QAS mock test #1'],
+  ['2026-10-26', 'drill', ['stats'], 'Mean, median & data'],
+  ['2026-10-27', 'drill', ['prob'], 'Probability & counting'],
+  ['2026-10-28', 'drill', ['geo'], 'Area, volume & circles'],
+  ['2026-10-29', 'drill', ['tri'], 'Triangles, angles & Pythagorean theorem'],
+  ['2026-10-30', 'weak', null, 'Weak-spot workout', 'Auto-picks your 3 lowest topics.'],
+  ['2026-10-31', 'mock', 'QAS', 'QAS mock test #2'],
+  ['2026-11-01', 'mistakes', null, 'Fix your mistakes', 'Redo every question you missed.'],
+  ['2026-11-02', 'drill', ['poly'], 'Polynomials & factoring'],
+  ['2026-11-03', 'drill', ['quad'], 'Quadratic equations'],
+  ['2026-11-04', 'drill', ['func'], 'Functions'],
+  ['2026-11-05', 'drill', ['rad', 'expo'], 'Radicals & exponential growth'],
+  ['2026-11-06', 'weak', null, 'Weak-spot workout'],
+  ['2026-11-07', 'mock', 'FULL', 'Full mixed mock test'],
+  ['2026-11-08', 'mistakes', null, 'Fix your mistakes'],
+  ['2026-11-09', 'drill', ['eq', 'ineq', 'sys'], 'Algebra tune-up'],
+  ['2026-11-10', 'drill', ['linapp', 'func'], 'Lines & functions tune-up'],
+  ['2026-11-11', 'drill', ['stats', 'prob'], 'Data & probability tune-up'],
+  ['2026-11-12', 'drill', ['geo', 'tri'], 'Geometry tune-up'],
+  ['2026-11-13', 'mock', 'QAS', 'QAS mock test #3'],
+  ['2026-11-14', 'weak', null, 'Weak-spot workout'],
+  ['2026-11-15', 'mock', 'FULL', 'Full mixed mock test #2'],
+  ['2026-11-16', 'mistakes', null, 'Fix your mistakes'],
+  ['2026-11-17', 'mock', 'QAS', 'Final QAS mock test', 'Treat it like the real thing: quiet room, no phone.'],
+  ['2026-11-18', 'weak', null, 'Last weak-spot workout'],
+  ['2026-11-19', 'mistakes', null, 'Light review & rest', 'Short review, then relax and sleep early.'],
+].map(([d, type, x, title, note]) => ({ d, type, x, title, note }));
+const MOCKS = {
+  QAS: { name: 'QAS Practice Test', n: 20, topics: ['int', 'ratio', 'exp', 'roots', 'expr', 'eq', 'ineq', 'sys', 'linapp', 'stats', 'prob', 'geo', 'tri', 'pct'], desc: 'Quantitative Reasoning, Algebra & Statistics — the main test for 9th-grade placement. 20 questions, like the real QAS.' },
+  ARI: { name: 'Arithmetic Test', n: 20, topics: ['frac', 'dec', 'pct', 'ops', 'cmp', 'int', 'ratio'], desc: 'Fractions, decimals, percents, order of operations. 20 questions.' },
+  AAF: { name: 'Advanced Algebra Test', n: 20, topics: ['poly', 'quad', 'func', 'rad', 'expo', 'linapp', 'sys'], desc: 'Factoring, quadratics, functions, exponents. Stretch level — 20 questions.' },
+  FULL: { name: 'Full Mixed Test', n: 30, topics: TOPIC_KEYS, desc: 'All three areas mixed together. 30 questions — builds stamina.' },
+};
+const planFor = k => PLAN.find(p => p.d === k);
+function planTopics(p) { return p.type === 'drill' ? p.x : p.type === 'weak' ? weakTopics(3) : p.type === 'mock' ? MOCKS[p.x].topics : []; }
+
+// ===================== UI HELPERS =====================
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const L = ['A', 'B', 'C', 'D'];
+const plain = h => String(h).replace(/<span class="fr"><span>(\d+)<\/span><span>(\d+)<\/span><\/span>/g, '($1/$2)').replace(/<br>/g, '\n').replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ');
+function toast(m) { const t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 2600); }
+function accPill(acc, n) {
+  if (acc == null) return `<span class="pill p-new">New</span>`;
+  const c = acc >= GOAL ? 'p-ok' : acc >= 70 ? 'p-warn' : 'p-bad';
+  return `<span class="pill ${c}">${acc}%</span>`;
+}
+const accColor = a => a == null ? 'var(--line)' : a >= GOAL ? 'var(--ok)' : a >= 70 ? 'var(--warn)' : 'var(--bad)';
+const fmtDate = (k, o = { weekday: 'short', month: 'short', day: 'numeric' }) => parseKey(k).toLocaleDateString('en-US', o);
+
+let current = 'today';
+function go(name) {
+  document.querySelectorAll('.sec').forEach(s => s.hidden = s.id !== 's-' + name);
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.go === name || (name === 'quiz' || name === 'result') && t.dataset.go === tabOf));
+  current = name;
+  if (R_[name]) R_[name]();
+  window.scrollTo(0, 0);
+}
+let tabOf = 'practice';
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => { if (quiz && current === 'quiz' && quiz.mock && quiz.i > 0 && !quiz.leaveOk) { quiz.leaveOk = true; toast('Mock test in progress. Tap again to leave (progress will be lost).'); return; } go(t.dataset.go); });
+
+function header() {
+  const n = daysLeft();
+  $('#cd-n').textContent = n > 0 ? n : n === 0 ? 'Today' : '✓';
+  $('#countdown .l').innerHTML = n > 0 ? `day${n === 1 ? '' : 's'} to<br>Nov 20` : n === 0 ? 'Test<br>day' : 'Test<br>done';
+  const m = Object.keys(S.missed).length; const b = $('#miss-badge'); b.hidden = !m; b.textContent = m;
+}
+
+// ===================== TODAY =====================
+function gaugeSVG(v) {
+  const r = 70, c = Math.PI * r; const p = v == null ? 0 : Math.max(0, Math.min(100, v)) / 100;
+  const goalA = Math.PI * (1 - GOAL / 100); const gx = 90 + r * Math.cos(goalA), gy = 90 - r * Math.sin(goalA);
+  return `<svg viewBox="0 0 180 110" role="img" aria-label="Readiness ${v ?? 'not yet measured'} percent">
+    <path d="M20 90 A70 70 0 0 1 160 90" fill="none" stroke="var(--line)" stroke-width="14" stroke-linecap="round"/>
+    <path d="M20 90 A70 70 0 0 1 160 90" fill="none" stroke="${accColor(v)}" stroke-width="14" stroke-linecap="round" stroke-dasharray="${c * p} ${c}"/>
+    <line x1="${90 + (r - 12) * Math.cos(goalA)}" y1="${90 - (r - 12) * Math.sin(goalA)}" x2="${90 + (r + 12) * Math.cos(goalA)}" y2="${90 - (r + 12) * Math.sin(goalA)}" stroke="var(--gold)" stroke-width="4"/>
+    <text x="${gx + 6}" y="${gy - 10}" class="sub" font-size="11">90</text>
+    <text x="90" y="86" text-anchor="middle" class="big">${v == null ? '—' : v + '%'}</text>
+    <text x="90" y="104" text-anchor="middle" class="sub">READINESS</text></svg>`;
+}
+function renderToday() {
+  header();
+  const k = todayKey(); const n = daysLeft(); let p = planFor(k);
+  const rd = readiness(); const st = topicStats();
+  const total = S.a.length, correct = S.a.reduce((s, x) => s + x[1], 0);
+  const todayN = S.a.filter(x => x[2] === k).length;
+  let heroHTML;
+  if (n < 0) heroHTML = `<div class="today"><span class="tag">Test complete</span><h2>You did it, Mahi!</h2><p>The test date has passed. Keep practicing here any time.</p><button class="btn primary" onclick="go('practice')">Practice anyway</button></div>`;
+  else if (n === 0) heroHTML = `<div class="today"><span class="tag">Test day</span><h2>Good luck today, Mahi!</h2><p>Eat breakfast, bring a pencil and your ID, read every question twice, and check each answer by plugging it back in. You are ready.</p><button class="btn primary" onclick="startWarmup()">5-question warm-up</button></div>`;
+  else {
+    if (!p) p = { type: 'weak', title: 'Weak-spot workout', note: 'Extra day: practice your lowest topics.' };
+    const done = S.done[k];
+    const tps = planTopics(p);
+    const label = p.type === 'mock' ? `Mock test · ${MOCKS[p.x].n} questions` : p.type === 'mistakes' ? `${Object.keys(S.missed).length} saved mistakes` : '20 questions';
+    heroHTML = `<div class="today"><span class="tag">Today · ${fmtDate(k)}</span><h2>${esc(p.title)}</h2>
+      <p>${esc(p.note || (p.type === 'drill' ? 'Read each explanation, even when you get it right.' : ''))}</p>
+      <div class="chips"><span class="chip">${label}</span>${p.type !== 'mistakes' && p.type !== 'mock' ? tps.map(t => `<span class="chip">${TOPICS[t].name}</span>`).join('') : ''}</div>
+      ${done ? `<div class="done-note">✓ Done for today. Extra practice still helps.</div>` : ''}
+      <button class="btn primary" onclick="startToday()">${done ? 'Go again' : 'Start today’s session'}</button></div>`;
+  }
+  const verdict = rd.v == null ? '' : rd.v >= GOAL ? `<div class="verdict" style="color:var(--ok)">On track for 90%+</div>` : `<div class="verdict" style="color:${accColor(rd.v)}">${GOAL - rd.v} points to go</div>`;
+  const weak = weakTopics(3).filter(t => st[t].n > 0);
+  const lastMock = S.mocks[S.mocks.length - 1];
+  $('#s-today').innerHTML = `
+    <div class="hero">${heroHTML}
+      <div class="card gauge">${gaugeSVG(rd.v)}${verdict}<small>${esc(rd.basis)}</small></div>
+    </div>
+    <div class="eyebrow">Progress</div>
+    <div class="grid3" style="grid-template-columns:repeat(4,minmax(0,1fr))" id="statrow">
+      <div class="card stat"><span class="v num">${S.streak.last === k || S.streak.last === todayKey(new Date(Date.now() - 864e5)) ? S.streak.n : 0}</span><span class="k">day streak</span></div>
+      <div class="card stat"><span class="v num">${todayN}</span><span class="k">answered today</span></div>
+      <div class="card stat"><span class="v num">${total ? Math.round(correct / total * 100) + '%' : '—'}</span><span class="k">all-time accuracy (${total})</span></div>
+      <div class="card stat"><span class="v num">${lastMock ? lastMock.pct + '%' : '—'}</span><span class="k">last mock test</span></div>
+    </div>
+    ${weak.length ? `<div class="eyebrow">Focus next</div><div class="topics">${weak.map(t => topicTile(t, st)).join('')}</div>` : ''}
+    <div class="eyebrow">How the real test works</div>
+    <div class="card"><ul class="tips">
+      <li>ACCUPLACER math is multiple choice (A–D) and <b>adaptive</b>: get questions right and they get harder. You can't go back to change an answer, so check before moving on.</li>
+      <li>The QAS test has <b>20 questions</b> and no time limit. Take your time — about 1–2 minutes each is fine.</li>
+      <li>An on-screen calculator appears only on some questions. Practice doing arithmetic by hand here.</li>
+      <li>Stuck? Plug each answer choice back into the question. It works on most equation problems.</li>
+    </ul></div>`;
+  if (window.innerWidth < 620) $('#statrow').style.gridTemplateColumns = 'repeat(2,minmax(0,1fr))';
+}
+function topicTile(t, st) {
+  const s = st[t];
+  return `<button class="tp" onclick="startPractice(['${t}'])"><span class="nm">${TOPICS[t].name}</span>
+    <div class="bar"><i style="width:${s.acc ?? 0}%;background:${accColor(s.acc)}"></i></div>
+    <span class="meta"><span>${STRANDS[TOPICS[t].strand].short} · ${s.n} done</span>${accPill(s.acc, s.n)}</span></button>`;
+}
+function startToday() {
+  tabOf = 'today';
+  const k = todayKey(); const p = planFor(k) || { type: 'weak' };
+  if (p.type === 'mock') return startMock(p.x, k);
+  if (p.type === 'mistakes') { if (Object.keys(S.missed).length) return startMistakes(k); return startQuiz({ title: 'Mixed review', items: buildSet(weakTopics(4), 20), plan: k }); }
+  startQuiz({ title: p.title || 'Weak-spot workout', items: buildSet(planTopics(p), 20), plan: k });
+}
+function startWarmup() { tabOf = 'today'; startQuiz({ title: 'Warm-up', items: buildSet(['eq', 'pct', 'linapp', 'geo', 'stats'], 5) }); }
+
+// ===================== PLAN =====================
+function renderPlan() {
+  header();
+  const k = todayKey(); const weeks = {};
+  PLAN.forEach(p => { const d = parseKey(p.d); const mon = new Date(d); mon.setDate(d.getDate() - ((d.getDay() + 6) % 7)); const wk = todayKey(mon); (weeks[wk] = weeks[wk] || []).push(p); });
+  const doneN = PLAN.filter(p => S.done[p.d]).length;
+  let html = `<div class="card" style="margin-bottom:22px"><div class="row" style="align-items:center;justify-content:space-between">
+    <div><h2 style="font-size:30px">37-day plan to Nov 20</h2><div style="color:var(--muted)">Arithmetic first, then QAS algebra, data & geometry, then advanced algebra and full mock tests.</div></div>
+    <div class="stat" style="text-align:right"><span class="v num">${doneN}/${PLAN.length}</span><span class="k">days completed</span></div></div></div>`;
+  let w = 0;
+  for (const wk in weeks) {
+    w++;
+    html += `<div class="week"><h3>Week ${w} · ${fmtDate(wk, { month: 'short', day: 'numeric' })}</h3>`;
+    weeks[wk].forEach(p => {
+      const cls = ['day']; if (p.d === k) cls.push('is-today'); if (p.d < k) cls.push('is-past'); if (S.done[p.d]) cls.push('is-done');
+      const sub = p.type === 'mock' ? MOCKS[p.x].name + ' · ' + MOCKS[p.x].n + ' Qs' : p.type === 'drill' ? p.x.map(t => TOPICS[t].name).join(', ') : p.note || '';
+      const d = parseKey(p.d);
+      html += `<div class="${cls.join(' ')}"><div class="dt"><b class="num">${d.getDate()}</b><span>${d.toLocaleDateString('en-US', { weekday: 'short' })}</span></div>
+        <div class="what"><b>${esc(p.title)}</b><small>${esc(sub)}</small></div>
+        ${p.d <= k ? `<button class="btn ${S.done[p.d] ? 'ghost' : 'primary'}" style="min-height:44px;padding:8px 14px" onclick="startPlanDay('${p.d}')">${S.done[p.d] ? 'Redo' : p.d === k ? 'Start' : 'Catch up'}</button>` : `<span class="mark" aria-label="upcoming"></span>`}</div>`;
+    });
+    html += `</div>`;
+  }
+  html += `<div class="day exam"><div class="dt"><b class="num">20</b><span>Fri</span></div><div class="what"><b>ACCUPLACER test day</b><small>Morris County Vocational School District · goal 90%+</small></div><span style="font-size:26px">★</span></div>`;
+  $('#s-plan').innerHTML = html;
+}
+function startPlanDay(d) {
+  tabOf = 'plan';
+  const p = planFor(d);
+  if (p.type === 'mock') return startMock(p.x, d);
+  if (p.type === 'mistakes') return Object.keys(S.missed).length ? startMistakes(d) : startQuiz({ title: 'Mixed review', items: buildSet(weakTopics(4), 20), plan: d });
+  startQuiz({ title: p.title, items: buildSet(planTopics(p), 20), plan: d });
+}
+
+// ===================== PRACTICE =====================
+function renderPractice() {
+  header(); const st = topicStats();
+  let html = `<div class="row" style="align-items:center;justify-content:space-between"><div><h2 style="font-size:30px">Practice by topic</h2><div style="color:var(--muted)">10 questions per round, with instant feedback. Questions are generated fresh every time.</div></div>
+    <button class="btn navy" onclick="startPractice(weakTopics(3),20)">Weakest 3 topics</button></div>`;
+  for (const s of ['ARI', 'QAS', 'AAF']) {
+    const ks = TOPIC_KEYS.filter(k => TOPICS[k].strand === s);
+    html += `<div class="strand-h"><h3>${STRANDS[s].name}</h3><span>${s === 'QAS' ? 'Main focus for 9th grade' : s === 'AAF' ? 'Stretch level' : 'Foundations'}</span></div>
+      <div class="topics">${ks.map(t => topicTile(t, st)).join('')}</div>
+      <button class="btn ghost wide" style="margin-top:10px" onclick="startPractice(${JSON.stringify(ks).replace(/"/g, "'")},15)">Mixed ${STRANDS[s].short} round · 15 questions</button>`;
+  }
+  $('#s-practice').innerHTML = html;
+}
+function startPractice(topics, n = 10) { tabOf = 'practice'; startQuiz({ title: topics.length === 1 ? TOPICS[topics[0]].name : 'Mixed practice', items: buildSet(topics, n) }); }
+
+// ===================== MOCK =====================
+function renderMock() {
+  header();
+  const rec = S.mocks.length === 0 ? 'QAS' : null;
+  let html = `<h2 style="font-size:30px">Mock tests</h2><div style="color:var(--muted);margin-bottom:16px">Like the real test: one question at a time, no going back, and no feedback until the end. Unlimited — every test is new.</div>
+    <div class="modes">${Object.entries(MOCKS).map(([k, m]) => `<button class="mode ${k === 'QAS' ? 'rec' : ''}" onclick="startMock('${k}')"><h3>${m.name}</h3><p>${m.desc}</p><div class="meta"><span class="chip">${m.n} questions</span>${k === 'QAS' ? '<span class="chip" style="background:var(--gold-soft);border-color:var(--gold)">Recommended</span>' : ''}</div></button>`).join('')}</div>
+    <div class="card" style="margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap"><div><b>Show a timer</b><div style="color:var(--muted);font-size:15px">The real test is untimed. The clock just helps you pace.</div></div>
+      <button class="btn ${S.timer ? 'navy' : 'ghost'}" id="timer-t" onclick="S.timer=!S.timer;save();renderMock()">${S.timer ? 'Timer on' : 'Timer off'}</button></div>`;
+  if (S.mocks.length) {
+    html += `<div class="eyebrow">Your scores</div><div class="card">${trendSVG()}<div class="tbl"><table class="hist"><thead><tr><th>Date</th><th>Test</th><th>Score</th><th>Time</th></tr></thead><tbody>${S.mocks.slice().reverse().map(m => `<tr><td>${fmtDate(m.d)}</td><td>${MOCKS[m.kind].name}</td><td class="num"><b>${m.pct}%</b> <span style="color:var(--muted)">(${m.c}/${m.n})</span></td><td class="num">${m.secs ? Math.round(m.secs / 60) + ' min' : '—'}</td></tr>`).join('')}</tbody></table></div></div>`;
+  }
+  $('#s-mock').innerHTML = html;
+}
+function trendSVG() {
+  const ms = S.mocks.slice(-12); if (ms.length < 2) return '';
+  const W = 600, H = 170, pl = 34, pr = 12, pt = 14, pb = 26;
+  const x = i => pl + i * (W - pl - pr) / (ms.length - 1), y = v => pt + (100 - v) * (H - pt - pb) / 100;
+  const pts = ms.map((m, i) => `${x(i)},${y(m.pct)}`).join(' ');
+  return `<div style="overflow-x:auto;margin-bottom:8px"><svg viewBox="0 0 ${W} ${H}" style="width:100%;min-width:320px;height:auto" role="img" aria-label="Mock test scores over time">
+    ${[50, 70, 90, 100].map(v => `<line x1="${pl}" x2="${W - pr}" y1="${y(v)}" y2="${y(v)}" stroke="${v === 90 ? 'var(--gold)' : 'var(--line)'}" stroke-width="${v === 90 ? 2 : 1}" ${v === 90 ? 'stroke-dasharray="6 4"' : ''}/><text x="${pl - 6}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="var(--muted)">${v}</text>`).join('')}
+    <polyline points="${pts}" fill="none" stroke="var(--band-2)" stroke-width="3" stroke-linejoin="round"/>
+    ${ms.map((m, i) => `<circle cx="${x(i)}" cy="${y(m.pct)}" r="${i === ms.length - 1 ? 6 : 4}" fill="${accColor(m.pct)}"/>`).join('')}
+    <text x="${W - pr}" y="${y(90) - 6}" text-anchor="end" font-size="11" fill="var(--muted)">goal 90%</text>
+    <text x="${pl}" y="${H - 6}" font-size="11" fill="var(--muted)">${fmtDate(ms[0].d, { month: 'short', day: 'numeric' })}</text><text x="${W - pr}" y="${H - 6}" text-anchor="end" font-size="11" fill="var(--muted)">${fmtDate(ms[ms.length - 1].d, { month: 'short', day: 'numeric' })}</text>
+  </svg></div>`;
+}
+function startMock(kind, plan) {
+  tabOf = 'mock'; const m = MOCKS[kind];
+  // spread across topics, QAS weighted toward algebra
+  let topics = m.topics.slice(); if (kind === 'QAS') topics = shuffle(topics.concat(['eq', 'linapp', 'expr', 'stats', 'geo', 'pct']));
+  startQuiz({ title: m.name, items: buildSet(shuffle(topics).slice(0, m.n), m.n), mock: kind, plan });
+}
+
+// ===================== MISTAKES =====================
+function renderReview() {
+  header(); const ms = Object.values(S.missed).sort((a, b) => b.t - a.t);
+  if (!ms.length) { $('#s-review').innerHTML = `<div class="card empty"><b>No saved mistakes</b>Every question you miss lands here so you can fix it later. Right now the list is empty — nice.</div>`; return; }
+  const byT = {}; ms.forEach(m => byT[m.topic] = (byT[m.topic] || 0) + 1);
+  $('#s-review').innerHTML = `<div class="row" style="align-items:center;justify-content:space-between"><div><h2 style="font-size:30px">Mistakes to fix</h2><div style="color:var(--muted)">Answer one correctly and it leaves this list.</div></div>
+      <button class="btn primary" onclick="startMistakes()">Redo all ${ms.length}</button></div>
+    <div class="chips" style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">${Object.entries(byT).sort((a, b) => b[1] - a[1]).map(([t, n]) => `<button class="chip" onclick="startMistakes(null,'${t}')">${TOPICS[t].name} · ${n}</button>`).join('')}</div>
+    <div class="card">${ms.slice(0, 40).map(m => `<div class="rv"><div class="h"><span class="pill p-bad">${TOPICS[m.topic].name}</span></div><div class="q" style="margin-top:6px">${m.q}</div><div class="a">Answer: <b>${m.opts[m.ans]}</b></div></div>`).join('')}</div>`;
+}
+function startMistakes(plan, topic) {
+  if (current !== 'today' && current !== 'plan') tabOf = 'review';
+  let items = Object.values(S.missed); if (topic) items = items.filter(m => m.topic === topic);
+  items = shuffle(items).slice(0, 25).map(m => ({ ...m, opts: m.opts.slice(), retry: true }));
+  // reshuffle choices so position isn't memorized
+  items.forEach(it => { const c = it.opts[it.ans]; it.opts = shuffle(it.opts); it.ans = it.opts.indexOf(c); });
+  startQuiz({ title: 'Fixing mistakes', items, plan });
+}
+
+// ===================== QUIZ ENGINE =====================
+let quiz = null, tick = null;
+function startQuiz(cfg) {
+  if (!cfg.items.length) { toast('Nothing to practice here yet.'); return; }
+  quiz = { ...cfg, i: 0, answers: [], start: Date.now(), picked: null, locked: false };
+  go('quiz'); renderQ();
+  clearInterval(tick); if (cfg.mock && S.timer) tick = setInterval(() => { const el = $('#clock'); if (el) el.textContent = clock(); }, 1000);
+}
+const clock = () => { const s = Math.floor((Date.now() - quiz.start) / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
+function renderQ() {
+  const q = quiz.items[quiz.i], N = quiz.items.length, ok = quiz.answers.filter(a => a.ok).length;
+  $('#s-quiz').innerHTML = `
+    <div class="qtop"><button class="btn ghost" style="min-height:44px;padding:8px 14px" onclick="quitQuiz()">✕ Exit</button>
+      <span class="lbl">${esc(quiz.title)}</span>
+      <span class="right">${quiz.mock && S.timer ? `<span class="chip num" id="clock">${clock()}</span>` : ''}${!quiz.mock ? `<span class="chip num">✓ ${ok}/${quiz.answers.length}</span>` : ''}</span></div>
+    <div class="prog"><i style="width:${quiz.i / N * 100}%"></i></div>
+    <div class="qcard">
+      <div class="qnum"><span class="num">Question ${quiz.i + 1} of ${N}</span><span class="pill p-new">${TOPICS[q.topic].name}</span></div>
+      <div class="qtext">${q.q}</div>
+      <div class="opts" role="radiogroup">${q.opts.map((o, j) => `<button class="opt" role="radio" aria-checked="false" id="o${j}" onclick="choose(${j})"><span class="bub">${L[j]}</span><span class="ot">${o}</span></button>`).join('')}</div>
+      <div id="fbx"></div>
+      <div class="qactions" id="qact">${quiz.mock ? `<button class="btn primary" id="sub" disabled onclick="submitMock()">Submit answer</button>` : ''}</div>
+    </div>
+    <div id="quit-confirm"></div>`;
+}
+function choose(j) {
+  if (quiz.locked) return;
+  const q = quiz.items[quiz.i];
+  if (quiz.mock) {
+    quiz.picked = j;
+    document.querySelectorAll('.opt').forEach((b, k) => { b.classList.toggle('sel', k === j); b.setAttribute('aria-checked', k === j); });
+    $('#sub').disabled = false; return;
+  }
+  quiz.locked = true; const ok = j === q.ans;
+  document.querySelectorAll('.opt').forEach((b, k) => { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === j) b.classList.add('wrong'); });
+  record(q, j, ok);
+  const last = quiz.i + 1 >= quiz.items.length;
+  $('#fbx').innerHTML = `<div class="fb ${ok ? 'ok' : 'no'}"><b>${ok ? pick(['Correct!', 'Nice work!', 'Exactly right.', 'Yes!']) : 'Not this time'}</b>${ok ? '' : `The answer is <b>${L[q.ans]}: ${q.opts[q.ans]}</b>.<br>`}${q.exp}</div><div id="tut"></div>`;
+  $('#qact').innerHTML = `${ok || !sampleFn ? '' : `<button class="btn ghost" id="askbtn" onclick="explain(${j})">Explain it another way</button>`}<button class="btn primary" onclick="nextQ()">${last ? 'See results' : 'Next question'}</button>`;
+  save();
+}
+function submitMock() {
+  if (quiz.picked == null) return;
+  const q = quiz.items[quiz.i]; record(q, quiz.picked, quiz.picked === q.ans); quiz.picked = null; save(); nextQ();
+}
+function record(q, j, ok) {
+  quiz.answers.push({ q, pick: j, ok });
+  logAnswer(q.topic, ok);
+  if (!ok) S.missed[q.id] = { id: q.id, q: q.q, opts: q.opts, ans: q.ans, exp: q.exp, topic: q.topic, t: Date.now() };
+  else if (q.retry) delete S.missed[q.id];
+}
+function nextQ() { quiz.i++; quiz.locked = false; if (quiz.i >= quiz.items.length) return finish(); renderQ(); }
+function quitQuiz() {
+  if (!quiz.answers.length) { clearInterval(tick); return go(tabOf === 'mock' ? 'mock' : tabOf); }
+  $('#quit-confirm').innerHTML = `<div class="card confirm" style="margin-top:12px"><span>${quiz.mock ? 'Leave this mock test? It won’t be scored.' : 'Stop here? Your answers so far are saved.'}</span><button class="btn ghost" onclick="$('#quit-confirm').innerHTML=''">Keep going</button><button class="btn navy" onclick="clearInterval(tick);${quiz.mock ? `go('mock')` : 'finish()'}">${quiz.mock ? 'Leave test' : 'Finish now'}</button></div>`;
+}
+
+function finish() {
+  clearInterval(tick);
+  const A = quiz.answers, n = A.length, c = A.filter(a => a.ok).length, pct = n ? Math.round(c / n * 100) : 0, secs = Math.round((Date.now() - quiz.start) / 1000);
+  if (quiz.mock) S.mocks.push({ d: todayKey(), kind: quiz.mock, n, c, pct, secs });
+  const full = n >= Math.min(quiz.items.length, 10);
+  if (quiz.plan && full) S.done[quiz.plan] = true;
+  else if (!quiz.plan && full) { const p = planFor(todayKey()); if (p && p.type !== 'mock' && n >= 15) S.done[todayKey()] = true; }
+  save(); header();
+  const byT = {}; A.forEach(a => { const t = a.q.topic; byT[t] = byT[t] || [0, 0]; byT[t][0]++; byT[t][1] += a.ok; });
+  const msg = pct >= GOAL ? ['Admission-level score!', 'That’s 90% or better. Keep it there on every mock test.'] : pct >= 75 ? ['Getting close', `You need about ${Math.ceil(GOAL / 100 * n) - c} more correct out of ${n} to hit 90%. Fix the misses below.`] : ['Good practice — keep going', 'Read each explanation below, then redo these in Mistakes.'];
+  $('#s-result').innerHTML = `
+    <div class="card"><div class="score-hero"><div class="pct num" style="color:${accColor(pct)}">${pct}%</div>
+      <div class="msg"><h2 style="font-size:30px">${msg[0]}</h2><div style="color:var(--muted)">${esc(quiz.title)} · ${c} of ${n} correct${quiz.mock ? ` · ${Math.floor(secs / 60)} min ${secs % 60} s` : ''}</div><p style="margin:8px 0 0">${msg[1]}</p></div></div>
+      <div class="qactions"><button class="btn primary" onclick="go('${tabOf === 'mock' ? 'mock' : 'today'}')">Done</button>${A.some(a => !a.ok) ? `<button class="btn ghost" onclick="startMistakes()">Redo mistakes now</button>` : ''}</div></div>
+    <div class="eyebrow">By topic</div>
+    <div class="topics">${Object.entries(byT).map(([t, [nn, cc]]) => { const a = Math.round(cc / nn * 100); return `<div class="tp"><span class="nm">${TOPICS[t].name}</span><div class="bar"><i style="width:${a}%;background:${accColor(a)}"></i></div><span class="meta"><span class="num">${cc}/${nn}</span>${accPill(a)}</span></div>`; }).join('')}</div>
+    <div class="eyebrow">Review every question</div>
+    <div class="card">${A.map((a, i) => `<div class="rv"><div class="h"><span class="pill ${a.ok ? 'p-ok' : 'p-bad'}">${a.ok ? '✓' : '✗'} ${i + 1}</span><div class="q">${a.q.q}</div></div>
+      <div class="a">${a.ok ? `Your answer: <b>${L[a.pick]}: ${a.q.opts[a.pick]}</b>` : `You chose ${L[a.pick]}: ${a.q.opts[a.pick]} · Correct: <b>${L[a.q.ans]}: ${a.q.opts[a.q.ans]}</b>`}</div>
+      ${a.ok && quiz.mock === undefined ? '' : `<div class="a" style="color:var(--ink-2)">${a.q.exp}</div>`}</div>`).join('')}</div>`;
+  go('result');
+}
+
+// ===================== AI TUTOR =====================
+let sampleFn; const sampleP = (async () => { try { sampleFn = window.claude && claude.use ? await claude.use('sample') : null; } catch (e) { sampleFn = null; } if (!sampleFn) { const t = document.querySelector('[data-go="tutor"]'); if (t) t.hidden = true; document.querySelector('.tabs .in').style.gridTemplateColumns = 'repeat(5,1fr)'; } return sampleFn; })();
+const TUTOR_SYS = 'You are a warm, patient math tutor for Mahi, an 8th grader in New Jersey preparing for the ACCUPLACER math test (QAS, Arithmetic, AAF) on Nov 20 for admission to a Morris County vocational high school; she needs 90%+. Explain step by step with short numbered steps, plain language, and one quick tip to avoid the mistake. Use plain text math (like 3/4, x^2, sqrt(5)). No markdown headings or bold. Under 180 words.';
+async function explain(j) {
+  const q = quiz.items[quiz.i]; const out = $('#tut'); const b = $('#askbtn');
+  const s = await sampleP;
+  if (!s) { out.innerHTML = `<div class="tutor-out">The tutor isn't available in this view. Try opening the page while signed in to Claude.</div>`; return; }
+  b.disabled = true; out.innerHTML = `<div class="tutor-out" id="tutxt">Thinking…</div>`;
+  const prompt = `${TUTOR_SYS}\n\nQuestion: ${plain(q.q)}\nChoices: ${q.opts.map((o, k) => L[k] + ') ' + plain(o)).join('  ')}\nMahi chose ${L[j]}) ${plain(q.opts[j])}. Correct is ${L[q.ans]}) ${plain(q.opts[q.ans])}.\nExplain why the correct answer is right and what likely went wrong with her choice.`;
+  try { await s(prompt, { modelTier: 'quick', onText: ({ text }) => { const el = $('#tutxt'); if (el) el.textContent = text; } }); }
+  catch (e) { const el = $('#tutxt'); if (el) el.textContent = e && e.code === 'rate_limited' ? 'The tutor is busy. Try again in a minute.' : 'The tutor couldn’t answer right now. The explanation above still covers the steps.'; }
+}
+function renderTutor() {
+  header();
+  const chips = ['Percent increase vs decrease', 'Solving inequalities with negatives', 'Slope from two points', 'Systems of equations by elimination', 'Factoring x² + bx + c', 'Mean vs median', 'Probability without replacement', 'Pythagorean theorem word problems', 'Scientific notation', 'Negative exponents'];
+  $('#s-tutor').innerHTML = `<h2 style="font-size:30px">Ask the tutor</h2><div style="color:var(--muted);margin-bottom:14px">Type any math question — or paste a problem from the study guide — and get step-by-step help.</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">${chips.map(c => `<button class="chip" onclick="$('#tq').value='Explain ${c.replace(/'/g, '')} with an example.';$('#tq').focus()">${c}</button>`).join('')}</div>
+    <label for="tq" class="eyebrow" style="display:block;margin-top:0">Your question</label>
+    <textarea id="tq" placeholder="Example: How do I solve 3(x − 4) = 2x + 5?"></textarea>
+    <button class="btn primary wide" style="margin-top:10px" id="tqb" onclick="askTutor()">Ask</button>
+    <div id="tqa"></div>`;
+}
+async function askTutor() {
+  const v = ($('#tq').value || '').trim(); if (!v) return;
+  const s = await sampleP; const out = $('#tqa');
+  if (!s) { out.innerHTML = `<div class="tutor-out">The tutor isn't available in this view. Try opening the page while signed in to Claude.</div>`; return; }
+  $('#tqb').disabled = true; out.innerHTML = `<div class="tutor-out" id="tqt">Thinking…</div>`;
+  try { await s(`${TUTOR_SYS}\n\nMahi asks: ${v}`, { cache: false, onText: ({ text }) => { $('#tqt').textContent = text; } }); }
+  catch (e) { $('#tqt').textContent = e && e.code === 'rate_limited' ? 'The tutor is busy. Try again in a minute.' : 'The tutor couldn’t answer right now. Please try again.'; }
+  $('#tqb').disabled = false;
+}
+
+const R_ = { today: renderToday, plan: renderPlan, practice: renderPractice, mock: renderMock, review: renderReview, tutor: renderTutor };
+function rerender() { if (R_[current]) R_[current](); header(); }
+header(); renderToday();
+</script>
+
+</body>
+</html>
