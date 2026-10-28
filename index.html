@@ -967,15 +967,18 @@ function renderToday() {
   if (n < 0) heroHTML = `<div class="today"><span class="tag">Test complete</span><h2>You did it, Mahi!</h2><p>The test date has passed. Keep practicing here any time.</p><button class="btn primary" onclick="go('practice')">Practice anyway</button></div>`;
   else if (n === 0) heroHTML = `<div class="today"><span class="tag">Test day</span><h2>Good luck today, Mahi!</h2><p>Eat breakfast, bring a pencil and your ID, read every question twice, and check each answer by plugging it back in. You are ready.</p><button class="btn primary" onclick="startWarmup()">5-question warm-up</button></div>`;
   else {
-    if (!p) p = { type: 'weak', title: 'Weak-spot workout', note: 'Extra day: practice your lowest topics.' };
-    const done = S.done[k];
+    const nx = nextDay();
+    if (nx) p = nx; else p = { type: 'weak', title: 'Weak-spot workout', note: 'Every plan day is done! Keep sharp with your weakest topics.' };
+    const done = !nx;
+    const behind = PLAN.filter(q => q.d < k && !S.done[q.d]).length;
+    const tagTxt = !nx ? 'Plan complete' : nx.d === k ? 'Today · ' + fmtDate(k) : nx.d < k ? 'Catch up · ' + fmtDate(nx.d) : 'Up next · ' + fmtDate(nx.d);
     const tps = planTopics(p);
     const label = p.type === 'mock' ? `Mock test · ${MOCKS[p.x].n} questions` : p.type === 'mistakes' ? `${Object.keys(S.missed).length} saved mistakes` : '20 questions';
-    heroHTML = `<div class="today"><span class="tag">Today · ${fmtDate(k)}</span><h2>${esc(p.title)}</h2>
+    heroHTML = `<div class="today"><span class="tag">${tagTxt}</span><h2>${esc(p.title)}</h2>
       <p>${esc(p.note || (p.type === 'drill' ? 'Read each explanation, even when you get it right.' : ''))}</p>
       <div class="chips"><span class="chip">${label}</span>${p.type !== 'mistakes' && p.type !== 'mock' ? tps.map(t => `<span class="chip">${TOPICS[t].name}</span>`).join('') : ''}</div>
-      ${done ? `<div class="done-note">✓ Done for today. Extra practice still helps.</div>` : ''}
-      <button class="btn primary" onclick="startToday()">${done ? 'Go again' : 'Start today’s session'}</button></div>`;
+      ${done ? `<div class="done-note">✓ All ${PLAN.length} plan days finished.</div>` : `<div class="done-note" style="color:#c9d4ee">Day ${PLAN.indexOf(nx) + 1} of ${PLAN.length} · ${PLAN.filter(q => S.done[q.d]).length} done${behind > 1 ? ` · ${behind} to catch up` : ''}</div>`}
+      <div class="row"><button class="btn primary" onclick="startToday()">${done ? 'Practice weak spots' : 'Start'}</button>${nx && PLAN.indexOf(nx) < PLAN.length - 1 ? `<button class="btn ghost" style="color:#fff;border-color:rgba(255,255,255,.35)" onclick="go('plan')">Pick another day</button>` : ''}</div></div>`;
   }
   const verdict = rd.v == null ? '' : rd.v >= GOAL ? `<div class="verdict" style="color:var(--ok)">On track for 90%+</div>` : `<div class="verdict" style="color:${accColor(rd.v)}">${GOAL - rd.v} points to go</div>`;
   const weak = weakTopics(3).filter(t => st[t].n > 0);
@@ -992,6 +995,11 @@ function renderToday() {
       <div class="card stat"><span class="v num">${lastMock ? lastMock.pct + '%' : '—'}</span><span class="k">last mock test</span></div>
     </div>
     ${weak.length ? `<div class="eyebrow">Focus next</div><div class="topics">${weak.map(t => topicTile(t, st)).join('')}</div>` : ''}
+    <div class="eyebrow">Backup progress</div>
+    <div class="card"><div style="color:var(--muted);margin-bottom:12px">Progress is saved in this browser on this iPad. Save a backup now and then so nothing is lost if Safari data is cleared or you switch devices.</div>
+      <div class="row"><button class="btn navy" onclick="exportBackup()">Save backup file</button><button class="btn ghost" onclick="$('#bk-file').click()">Restore from file</button>
+      <input type="file" id="bk-file" accept=".json,application/json,text/plain" hidden onchange="importFile(this)"></div>
+      <div id="bk-msg"></div></div>
     <div class="eyebrow">How the real test works</div>
     <div class="card"><ul class="tips">
       <li>ACCUPLACER math is multiple choice (A–D) and <b>adaptive</b>: get questions right and they get harder. You can't go back to change an answer, so check before moving on.</li>
@@ -1007,9 +1015,11 @@ function topicTile(t, st) {
     <div class="bar"><i style="width:${s.acc ?? 0}%;background:${accColor(s.acc)}"></i></div>
     <span class="meta"><span>${STRANDS[TOPICS[t].strand].short} · ${s.n} done</span>${accPill(s.acc, s.n)}</span></button>`;
 }
+function nextDay() { return PLAN.find(q => !S.done[q.d]) || null; }
 function startToday() {
   tabOf = 'today';
-  const k = todayKey(); const p = planFor(k) || { type: 'weak' };
+  const nx = nextDay(); if (nx) return startPlanDay(nx.d, 'today');
+  const k = todayKey(); const p = { type: 'weak' };
   if (p.type === 'mock') return startMock(p.x, k);
   if (p.type === 'mistakes') { if (Object.keys(S.missed).length) return startMistakes(k); return startQuiz({ title: 'Mixed review', items: buildSet(weakTopics(4), 20), plan: k }); }
   startQuiz({ title: p.title || 'Weak-spot workout', items: buildSet(planTopics(p), 20), plan: k });
@@ -1023,7 +1033,7 @@ function renderPlan() {
   PLAN.forEach(p => { const d = parseKey(p.d); const mon = new Date(d); mon.setDate(d.getDate() - ((d.getDay() + 6) % 7)); const wk = todayKey(mon); (weeks[wk] = weeks[wk] || []).push(p); });
   const doneN = PLAN.filter(p => S.done[p.d]).length;
   let html = `<div class="card" style="margin-bottom:22px"><div class="row" style="align-items:center;justify-content:space-between">
-    <div><h2 style="font-size:30px">37-day plan to Nov 20</h2><div style="color:var(--muted)">Arithmetic first, then QAS algebra, data & geometry, then advanced algebra and full mock tests.</div></div>
+    <div><h2 style="font-size:30px">37-day plan to Nov 20</h2><div style="color:var(--muted)">Arithmetic first, then QAS algebra, data & geometry, then advanced algebra and full mock tests. Finished early? Start any later day — it gets ticked off when you finish it.</div></div>
     <div class="stat" style="text-align:right"><span class="v num">${doneN}/${PLAN.length}</span><span class="k">days completed</span></div></div></div>`;
   let w = 0;
   for (const wk in weeks) {
@@ -1035,15 +1045,15 @@ function renderPlan() {
       const d = parseKey(p.d);
       html += `<div class="${cls.join(' ')}"><div class="dt"><b class="num">${d.getDate()}</b><span>${d.toLocaleDateString('en-US', { weekday: 'short' })}</span></div>
         <div class="what"><b>${esc(p.title)}</b><small>${esc(sub)}</small></div>
-        ${p.d <= k ? `<button class="btn ${S.done[p.d] ? 'ghost' : 'primary'}" style="min-height:44px;padding:8px 14px" onclick="startPlanDay('${p.d}')">${S.done[p.d] ? 'Redo' : p.d === k ? 'Start' : 'Catch up'}</button>` : `<span class="mark" aria-label="upcoming"></span>`}</div>`;
+        <div style="display:flex;align-items:center;gap:8px">${S.done[p.d] ? `<span class="mark" aria-label="done">✓</span>` : ''}<button class="btn ${S.done[p.d] || p.d > k ? 'ghost' : 'primary'}" style="min-height:44px;padding:8px 14px" onclick="startPlanDay('${p.d}')">${S.done[p.d] ? 'Redo' : p.d === k ? 'Start' : p.d < k ? 'Catch up' : 'Start early'}</button></div></div>`;
     });
     html += `</div>`;
   }
   html += `<div class="day exam"><div class="dt"><b class="num">20</b><span>Fri</span></div><div class="what"><b>ACCUPLACER test day</b><small>Morris County Vocational School District · goal 90%+</small></div><span style="font-size:26px">★</span></div>`;
   $('#s-plan').innerHTML = html;
 }
-function startPlanDay(d) {
-  tabOf = 'plan';
+function startPlanDay(d, from) {
+  tabOf = from || 'plan';
   const p = planFor(d);
   if (p.type === 'mock') return startMock(p.x, d);
   if (p.type === 'mistakes') return Object.keys(S.missed).length ? startMistakes(d) : startQuiz({ title: 'Mixed review', items: buildSet(weakTopics(4), 20), plan: d });
@@ -1227,6 +1237,44 @@ async function askTutor() {
   try { await s(`${TUTOR_SYS}\n\nMahi asks: ${v}`, { cache: false, onText: ({ text }) => { $('#tqt').textContent = text; } }); }
   catch (e) { $('#tqt').textContent = e && e.code === 'rate_limited' ? 'The tutor is busy. Try again in a minute.' : 'The tutor couldn’t answer right now. Please try again.'; }
   $('#tqb').disabled = false;
+}
+
+// ===================== BACKUP =====================
+function exportBackup() {
+  const data = JSON.stringify({ app: 'mahi-accuplacer', v: 1, exported: new Date().toISOString(), state: S });
+  const name = `mahi-accuplacer-backup-${todayKey()}.json`;
+  try {
+    const blob = new Blob([data], { type: 'application/json' });
+    const f = typeof File === 'function' ? new File([blob], name, { type: 'application/json' }) : null;
+    if (f && navigator.canShare && navigator.canShare({ files: [f] })) { navigator.share({ files: [f], title: name }).then(() => toast('Backup saved'), () => {}); return; }
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000); toast('Backup saved to Downloads');
+  } catch (e) { $('#bk-msg').innerHTML = `<div class="fb no" style="margin-top:12px">This browser couldn't save the file. Try again in Safari.</div>`; }
+}
+let pendingRestore = null;
+function importFile(inp) {
+  const f = inp.files && inp.files[0]; inp.value = ''; if (!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    try {
+      const o = JSON.parse(r.result); const st = o.state || o;
+      if (!st || !Array.isArray(st.a) || !st.done) throw 0;
+      pendingRestore = st;
+      $('#bk-msg').innerHTML = `<div class="card confirm" style="margin-top:12px"><span>Backup from ${o.exported ? new Date(o.exported).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'file'}: ${st.a.length} answers, ${Object.keys(st.done).length} plan days, ${st.mocks ? st.mocks.length : 0} mock tests. It will be combined with what's on this iPad.</span>
+        <button class="btn ghost" onclick="pendingRestore=null;$('#bk-msg').innerHTML=''">Cancel</button><button class="btn primary" onclick="applyRestore()">Restore</button></div>`;
+    } catch (e) { $('#bk-msg').innerHTML = `<div class="fb no" style="margin-top:12px">That file isn't a backup from this app. Choose the file named mahi-accuplacer-backup-….json.</div>`; }
+  };
+  r.readAsText(f);
+}
+function applyRestore() {
+  const b = pendingRestore; if (!b) return;
+  // combine: keep everything from both, no duplicates
+  const seen = new Set(); const all = [];
+  const pushA = (arr) => (arr || []).forEach(x => all.push(x));
+  if (b.a.length >= S.a.length) { pushA(b.a); if (S.a.length > b.a.length) pushA(S.a.slice(b.a.length)); } else { pushA(S.a); }
+  const mocks = [...(S.mocks || []), ...(b.mocks || [])].filter(m => { const key = [m.d, m.kind, m.c, m.n, m.secs].join('|'); if (seen.has(key)) return false; seen.add(key); return true; }).sort((x, y) => x.d < y.d ? -1 : x.d > y.d ? 1 : 0);
+  S = Object.assign({}, S, { a: all, mocks, missed: Object.assign({}, b.missed || {}, S.missed), done: Object.assign({}, b.done || {}, S.done), streak: (b.streak && b.streak.n > S.streak.n) ? b.streak : S.streak });
+  pendingRestore = null; save(); renderToday(); toast('Progress restored');
 }
 
 const R_ = { today: renderToday, plan: renderPlan, practice: renderPractice, mock: renderMock, review: renderReview, tutor: renderTutor };
